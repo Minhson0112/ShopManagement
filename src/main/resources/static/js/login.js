@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('error')) {
-      errorDiv.textContent = "認証に失敗しました";
+      errorDiv.textContent = "đăng nhập thất bại";
       errorDiv.style.display = 'block';
     }
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
        
         if (!loginId || !password) {
             event.preventDefault();
-            errorDiv.textContent = "認証に失敗しました";
+            errorDiv.textContent = "đăng nhập thất bại";
             errorDiv.style.display = "block";
             return;
         }
@@ -41,13 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.ok) {
                 
             } else {
-                errorDiv.textContent = "認証に失敗しました";
+                errorDiv.textContent = "đăng nhập thất bại";
                 errorDiv.style.display = "block";
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            errorDiv.textContent = "認証に失敗しました";
+            errorDiv.textContent = "đăng nhập thất bại";
             errorDiv.style.display = "block";
         });
     });
