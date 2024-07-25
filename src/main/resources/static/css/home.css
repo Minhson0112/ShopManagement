@@ -89,6 +89,7 @@ html {
     display: flex;
     flex-direction: column;
     padding: 24px 40px;
+    align-items: center;
   }
   
   .app_side_menu_item {
@@ -164,7 +165,7 @@ html {
     background-color: #607d8b;
     margin: 16px auto 0;
     height: 24px;
-    width: 80px;
+    width: 100px;
   }
   
   #search_error {
@@ -237,7 +238,7 @@ html {
   
   
   
-  .edit_book_button, .remove_book_button {
+  .edit_product_button, .remove_product_button {
     display: block;
     width: 32px;
     height: 32px;
@@ -253,7 +254,7 @@ html {
   
   
   
-  #add_book_button {
+  #add_product_button {
     display: block;
     width: 32px;
     height: 32px;
@@ -262,7 +263,7 @@ html {
     background-color: transparent;
   }
   
-  #add_book_button img {
+  #add_product_button img {
     height: 100%;
     width: 100%;
   }

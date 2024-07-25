@@ -19,22 +19,24 @@
         <form class="search_form">
           <label for="title_input">Tên SP:</label>
           <input type="text" id="title_input" name="title_input" >
-          <p id="title_input_error">半角英数字 0~200 文字の文字列</p>
-          <label for="author_select">著者:</label>
-          <select id="author_select" name="author_select">
-            <option value="" selected>著者セットしない</option>
+          <p id="title_input_error">tên sản phẩm không vượt quá 200 kí tự</p>
+          <label for="category_select">Chủng Loại:</label>
+          <select id="category_select" name="category_select">
+            <option value="" selected>Ấn vào đây để chọn</option>
           </select>
-          <button id="search_button">検索</button>
-          <p id="search_error">検索に失敗しました。</p>
+          <button id="search_button">Tìm Kiếm</button>
+          <p id="search_error">Tìm Kiếm Thất Bại</p>
         </form>
         <table class="data_list">
           <thead>
             <tr>
               <th id="thf">ID</th>
               <th>Tên SP</th>
-              <th>著者</th>
+              <th>Chủng Loại</th>
+              <th>Giá Nhập</th>
+              <th>Giá Bán</th>
               <th id="none"></th>
-              <th id="thl"><button id="add_book_button"><img src="/imgs/add.png"></button></th>
+              <th id="thl"><button id="add_product_button"><img src="/imgs/add.png"></button></th>
             </tr>
           </thead>
           <tbody id="data_list_items">
@@ -42,8 +44,10 @@
               <td id="tdf"></td>
               <td></td>
               <td></td>
-              <td id="tdl1"><button class="edit_book_button"><img src="/imgs/edit.png" alt="edit"></button></td>
-              <td id="tdl2"><button class="remove_book_button"><img src="/imgs/remove.png" alt="remove"></button></td>
+              <td></td>
+              <td></td>
+              <td id="tdl1"><button class="edit_product_button"><img src="/imgs/edit.png" alt="edit"></button></td>
+              <td id="tdl2"><button class="remove_product_button"><img src="/imgs/remove.png" alt="remove"></button></td>
             </tr>
           </tbody>
         </table>
