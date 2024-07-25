@@ -15,17 +15,14 @@ public class Admin {
     @Column(name = "password", nullable = false)
     private String password;
 
-    // Default constructor
-    public Admin() {
-    }
+    // Constructors, getters, and setters
+    public Admin() {}
 
-    // Parameterized constructor
     public Admin(String userId, String password) {
         this.userId = userId;
         this.password = password;
     }
 
-    // Getter and Setter for userId
     public String getUserId() {
         return userId;
     }
@@ -34,7 +31,6 @@ public class Admin {
         this.userId = userId;
     }
 
-    // Getter and Setter for password
     public String getPassword() {
         return password;
     }

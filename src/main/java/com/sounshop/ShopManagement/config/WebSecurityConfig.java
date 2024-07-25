@@ -6,7 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.sounshop.ShopManagement.service.AdminDetailsService;
@@ -26,7 +26,7 @@ public class WebSecurityConfig {
                 .loginPage("/login")
                 .usernameParameter("login_id")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/home", true)
                 .failureUrl("/login?error")
                 .permitAll())
             .logout((logout) -> logout
@@ -48,6 +48,6 @@ public class WebSecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return NoOpPasswordEncoder.getInstance();
     }
 }
