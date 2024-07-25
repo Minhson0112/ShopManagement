@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+  </head>
+  <body>
+    <div id="login_form">
+      <div id="login_form_header">
+        <img th:src="@{/imgs/logo.png}" alt="logo">
+      </div>
+      <form id="login_form_contents" method="post" th:action="@{/login}">
+        <label for="login_id">ID:</label>
+        <input type="text" id="id_input" name="login_id">
+        <label for="pass">パスワード:</label>
+        <input type="password" id="password_input" name="password">
+        <button id="login_button">ログイン</button>
+        <p id="login_error"></p>
+      </form>
+      <div id="login_form_footer">
+        <a th:href="@{/login}">パスワードを忘れた場合はこちら</a>
+      </div>
+    </div>
+    
+    
+    <!--<div th:replace="common/footer :: footer_fragment()"></div>-->
+    <script src="/js/login.js"></script> 
+  </body>
+
+</html>

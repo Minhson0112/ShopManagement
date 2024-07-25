@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <link rel="stylesheet" href="/css/home.css">
+  </head>
+  <body>
+    <header th:replace="~{common/header :: header()}"></header>
+    
+    <div id="app_contents">
+      <div th:replace="~{common/side_menu :: side_menu()}"></div>
+      
+      <div id="app_contents_area">
+        <p id="page_title">書籍情報管理画面</p>
+        <form class="search_form">
+          <label for="title_input">タイトル:</label>
+          <input type="text" id="title_input" name="title_input" >
+          <p id="title_input_error">半角英数字 0~200 文字の文字列</p>
+          <label for="author_select">著者:</label>
+          <select id="author_select" name="author_select">
+            <option value="" selected>著者セットしない</option>
+          </select>
+          <button id="search_button">検索</button>
+          <p id="search_error">検索に失敗しました。</p>
+        </form>
+        <table class="data_list">
+          <thead>
+            <tr>
+              <th id="thf">ID</th>
+              <th>タイトル</th>
+              <th>著者</th>
+              <th id="none"></th>
+              <th id="thl"><button id="add_book_button"><img src="/imgs/add.png"></button></th>
+            </tr>
+          </thead>
+          <tbody id="data_list_items">
+            <tr>
+              <td id="tdf"></td>
+              <td></td>
+              <td></td>
+              <td id="tdl1"><button class="edit_book_button"><img src="/imgs/edit.png" alt="edit"></button></td>
+              <td id="tdl2"><button class="remove_book_button"><img src="/imgs/remove.png" alt="remove"></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="page_wrapper">
+      <img id="loading_dialog" src="/imgs/loading.gif" alt="loading">
+      
+      <div id="add_book_dialog">
+        <p id="add_book_dialog_title">書籍情報登録</p>
+        <form id="add_form">
+          <label for="add_book_title_input">タイトル:</label>
+          <input type="text" name="add_book_title_input" id="add_book_title_input">
+          <p id="add_book_title_input_error">半角英数字(半角空白含む) 1~200 文字で入力してください。</p>
+          <label for="add_book_author_select">著者:</label>
+          <select id="add_book_author_select" name="add_book_author_select">
+            
+          </select>
+          <div id="add_book_button_area">
+            <button id="close_add_book_button">キャンセル</button>
+            <button id="decide_add_book_button">登録</button>
+          </div>
+          <p id="add_book_error">登録に失敗しました。</p>
+        </form>
+      </div>
+      
+      
+      
+      <div id="edit_book_dialog">
+        <p id="edit_book_dialog_title">書籍情報編集</p>
+        <form id="edit_form">
+          <label for="edit_book_title_input">タイトル:</label>
+          <input type="text" name="edit_book_title_input" id="edit_book_title_input">
+          <p id="edit_book_title_input_error">半角英数字(半角空白含む) 1~200 文字で入力してください。</p>
+          <label for="edit_book_author_select">著者:</label>
+          <select id="edit_book_author_select" name="edit_book_author_select">
+            
+          </select>
+          <div id="edit_book_button_area">
+            <button id="close_edit_book_button">キャンセル</button>
+            <button id="decide_edit_book_button">保存</button>
+          </div>
+          <p id="edit_book_error">保存に失敗しました。</p>
+        </form>
+      </div>
+      
+      
+      <div id="remove_book_dialog">
+        <p id="remove_book_dialog_title">書籍情報削除</p>
+        <form id="remove_form">
+          <p id="remove_dialog_msg">の情報を削除しますか？<br> ※ この操作は取り消すことができません。</p>
+          <div id="remove_book_button_area">
+            <button id="close_remove_book_button">キャンセル</button>
+            <button id="decide_remove_book_button">削除</button>
+          </div>
+          <p id="remove_book_error">削除に失敗しました。</p>
+        </form>
+      </div>
+      
+      
+    </div>
+    
+    
+
+    <script src="/js/logout.js"></script> 
+    <script src="/js/getBookApi.js"></script> 
+    <script src="/js/addBook.js"></script> 
+    <script src="/js/editBook.js"></script> 
+    <script src="/js/removeBook.js"></script> 
+    
+  </body>
+</html>
