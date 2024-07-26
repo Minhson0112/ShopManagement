@@ -7,6 +7,7 @@
     <meta name="_csrf" th:content="${_csrf.token}">
     <meta name="_csrf_header" th:content="${_csrf.headerName}">
     <link rel="stylesheet" href="/css/home.css">
+   
   </head>
   <body>
     <header th:replace="~{common/header :: header()}"></header>
@@ -56,54 +57,59 @@
     <div id="page_wrapper">
       <img id="loading_dialog" src="/imgs/loading.gif" alt="loading">
       
-      <div id="add_book_dialog">
-        <p id="add_book_dialog_title">書籍情報登録</p>
+      <div id="add_product_dialog">
+        <p id="add_product_dialog_title">Thêm SP vào hệ thống</p>
         <form id="add_form">
-          <label for="add_book_title_input">タイトル:</label>
-          <input type="text" name="add_book_title_input" id="add_book_title_input">
-          <p id="add_book_title_input_error">半角英数字(半角空白含む) 1~200 文字で入力してください。</p>
-          <label for="add_book_author_select">著者:</label>
-          <select id="add_book_author_select" name="add_book_author_select">
-            
+          <label for="add_product_title_input">Tên SP Mới:</label>
+          <input type="text" name="add_product_title_input" id="add_product_title_input">
+          <p id="add_product_title_input_error">tên sản phẩm không được trống</p>
+          <label for="add_product_category_select">Chủng Loại:</label>
+          <select class="js-tags" id="add_product_category_select" name="add_product_category_select">
+            <option value="" selected>ấn để chọn các chủng loại đã có</option>
           </select>
-          <div id="add_book_button_area">
-            <button id="close_add_book_button">キャンセル</button>
-            <button id="decide_add_book_button">登録</button>
+          <input type="text" id="input_category" placeholder="Nhập chủng loại mới">
+          <label for ="input_entry_price">Giá Nhập(yen):</label>
+          <input type="number" name="input_entry_price" id="input_entry_price">
+          <label for="input_sell_price">Giá Bán(yen):</label>
+          <input type="number" name="input_sell_price" id="input_sell_price">
+          <div id="add_product_button_area">
+            <button id="close_add_product_button">Huỷ</button>
+            <button id="decide_add_product_button">Xác Nhận</button>
           </div>
-          <p id="add_book_error">登録に失敗しました。</p>
+          <p id="add_product_error">Thêm Thất Bại</p>
         </form>
       </div>
       
       
       
-      <div id="edit_book_dialog">
-        <p id="edit_book_dialog_title">書籍情報編集</p>
+      <div id="edit_product_dialog">
+        <p id="edit_product_dialog_title">書籍情報編集</p>
         <form id="edit_form">
-          <label for="edit_book_title_input">タイトル:</label>
-          <input type="text" name="edit_book_title_input" id="edit_book_title_input">
-          <p id="edit_book_title_input_error">半角英数字(半角空白含む) 1~200 文字で入力してください。</p>
-          <label for="edit_book_author_select">著者:</label>
-          <select id="edit_book_author_select" name="edit_book_author_select">
-            
+          <label for="edit_product_title_input">タイトル:</label>
+          <input type="text" name="edit_product_title_input" id="edit_product_title_input">
+          <p id="edit_product_title_input_error">半角英数字(半角空白含む) 1~200 文字で入力してください。</p>
+          <label for="edit_product_author_select">著者:</label>
+          <select id="edit_product_author_select" name="edit_product_author_select">
+            <option value="test" selected>test</option>
           </select>
-          <div id="edit_book_button_area">
-            <button id="close_edit_book_button">キャンセル</button>
-            <button id="decide_edit_book_button">保存</button>
+          <div id="edit_product_button_area">
+            <button id="close_edit_product_button">キャンセル</button>
+            <button id="decide_edit_product_button">保存</button>
           </div>
-          <p id="edit_book_error">保存に失敗しました。</p>
+          <p id="edit_product_error">保存に失敗しました。</p>
         </form>
       </div>
       
       
-      <div id="remove_book_dialog">
-        <p id="remove_book_dialog_title">書籍情報削除</p>
+      <div id="remove_product_dialog">
+        <p id="remove_product_dialog_title">書籍情報削除</p>
         <form id="remove_form">
           <p id="remove_dialog_msg">の情報を削除しますか？<br> ※ この操作は取り消すことができません。</p>
-          <div id="remove_book_button_area">
-            <button id="close_remove_book_button">キャンセル</button>
-            <button id="decide_remove_book_button">削除</button>
+          <div id="remove_product_button_area">
+            <button id="close_remove_product_button">キャンセル</button>
+            <button id="decide_remove_product_button">削除</button>
           </div>
-          <p id="remove_book_error">削除に失敗しました。</p>
+          <p id="remove_product_error">削除に失敗しました。</p>
         </form>
       </div>
       
@@ -113,6 +119,8 @@
     
 
     <script src="/js/logout.js"></script> 
- 
+    <script src="/js/addProduct.js"></script> 
+    
+    
   </body>
 </html>

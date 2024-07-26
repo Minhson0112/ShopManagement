@@ -202,7 +202,7 @@ html {
   
   
   #thf {
-    width: 176px;
+    width: 100px;
   }
   #thl {
     width: 48px;
@@ -291,7 +291,7 @@ html {
   
   
   
-  #add_book_dialog, #edit_book_dialog, #remove_book_dialog {
+  #add_product_dialog, #edit_product_dialog, #remove_product_dialog {
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -302,7 +302,7 @@ html {
   }
   
   
-  #add_book_dialog_title, #edit_book_dialog_title, #remove_book_dialog_title {
+  #add_product_dialog_title, #edit_product_dialog_title, #remove_product_dialog_title {
     display: block;
     margin: 0 0 16px;
     color: #000000;
@@ -325,31 +325,32 @@ html {
     font-size: 16px;
     color: #000000;
     line-height: 24px;
+    margin-top: 20px;
   }
   
   
-  #add_book_title_input, #add_book_author_select, #edit_book_title_input, #edit_book_author_select  {
+  #add_product_title_input, #add_product_category_select, #edit_product_title_input, #edit_product_author_select #input_entry_price #input_sell_price #input_category {
     font-size: 16px;
     color: #000000;
     border: 1px solid #c2c2c2;
   }
   
   
-  #add_book_title_input_error, #edit_book_title_input_error {
+  #add_product_title_input_error, #edit_product_title_input_error {
     font-size: 16px;
     color: #ff0000;
     line-height:24px;
     display: none;
   }
   
-  #add_book_button_area, #edit_book_button_area, #remove_book_button_area {
+  #add_product_button_area, #edit_product_button_area, #remove_product_button_area {
     display: flex;
     justify-content: center;
     margin-top: 20px;
   }
   
     
-  #close_add_book_button, #close_edit_book_button, #close_remove_book_button {
+  #close_add_product_button, #close_edit_product_button, #close_remove_product_button {
     font-size: 16px;
     color: #ffffff;
     background-color: #607d8b;
@@ -358,7 +359,7 @@ html {
     margin: 0 24px 0 0;
   }
     
-  #decide_add_book_button, #decide_edit_book_button, #decide_remove_book_button {
+  #decide_add_product_button, #decide_edit_product_button, #decide_remove_product_button {
     font-size: 16px;
     color: #ffffff;
     background-color: #607d8b;
@@ -376,7 +377,7 @@ html {
     line-height: 24px;
   }
   
-  #add_book_error, #edit_book_error, #remove_book_error {
+  #add_product_error, #edit_product_error, #remove_product_error {
     font-size: 16px;
     color: #ff0000;
     line-height: 24px;
@@ -388,7 +389,9 @@ html {
   
   
   
-  
+  .select2-container {
+    margin-bottom: 20px;
+}
   
   
   
