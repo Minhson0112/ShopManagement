@@ -36,7 +36,7 @@ public class ProductInfo {
     private Boolean isDelete;
 
     // Constructors
-    public ProductInfo() {}
+   
 
     public ProductInfo(String productName, String category, Integer entryPrice, Integer sellPrice, LocalDate addDate, Boolean isDelete) {
         this.productName = productName;
@@ -46,6 +46,7 @@ public class ProductInfo {
         this.addDate = addDate;
         this.isDelete = isDelete;
     }
+    public ProductInfo() {}
 
     // Getters and Setters
     public Integer getProductId() {

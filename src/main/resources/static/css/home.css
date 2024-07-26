@@ -329,7 +329,7 @@ html {
   }
   
   
-  #add_product_title_input, #add_product_category_select, #edit_product_title_input, #edit_product_author_select #input_entry_price #input_sell_price #input_category {
+  #add_product_title_input, #add_product_category_select, #edit_product_title_input, #edit_product_category_select #input_entry_price #input_sell_price #input_category #edit_category, #edit_entry_price #edit_sell_price {
     font-size: 16px;
     color: #000000;
     border: 1px solid #c2c2c2;

@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
-
+import java.util.List;
 
 @Repository
 public interface ProductInfoRepository extends CrudRepository<ProductInfo, Integer> {
@@ -23,4 +23,12 @@ public interface ProductInfoRepository extends CrudRepository<ProductInfo, Integ
         @Param("addDate") String addDate,
         @Param("isDelete") Boolean isDelete
     );
+
+    
+    @Query(value = "SELECT productId, productName, category, entryPrice, sellPrice, addDate, isDelete FROM productInfo WHERE isDelete = false", nativeQuery = true)
+    List<ProductInfo> findAllProductInfo();
+
+    List<ProductInfo> findByProductNameContainingAndCategory(String productName, String category);
+    List<ProductInfo> findByProductNameContaining(String productName);
+    List<ProductInfo> findByCategory(String category);
 }

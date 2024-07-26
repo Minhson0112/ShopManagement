@@ -83,33 +83,38 @@
       
       
       <div id="edit_product_dialog">
-        <p id="edit_product_dialog_title">書籍情報編集</p>
+        <p id="edit_product_dialog_title">Sửa thông tin SP</p>
         <form id="edit_form">
-          <label for="edit_product_title_input">タイトル:</label>
+          <label for="edit_product_title_input">Tên SP:</label>
           <input type="text" name="edit_product_title_input" id="edit_product_title_input">
-          <p id="edit_product_title_input_error">半角英数字(半角空白含む) 1~200 文字で入力してください。</p>
-          <label for="edit_product_author_select">著者:</label>
-          <select id="edit_product_author_select" name="edit_product_author_select">
-            <option value="test" selected>test</option>
+          <p id="edit_product_title_input_error">tên sản phẩm không được trống</p>
+          <label for="edit_product_category_select">Chủng Loại:</label>
+          <select id="edit_product_category_select" name="edit_product_category_select">
+            <option value="" selected>ấn để chọn các chủng loại đã có</option>
           </select>
+          <input type="text" id="edit_category" placeholder="Nhập chủng loại mới">
+          <label for ="edit_entry_price">Giá Nhập(yen):</label>
+          <input type="number" name="edit_entry_price" id="edit_entry_price">
+          <label for="edit_sell_price">Giá Bán(yen):</label>
+          <input type="number" name="edit_sell_price" id="edit_sell_price">
           <div id="edit_product_button_area">
-            <button id="close_edit_product_button">キャンセル</button>
-            <button id="decide_edit_product_button">保存</button>
+            <button id="close_edit_product_button">huỷ</button>
+            <button id="decide_edit_product_button">Lưu</button>
           </div>
-          <p id="edit_product_error">保存に失敗しました。</p>
+          <p id="edit_product_error">Lưu Thất Bại</p>
         </form>
       </div>
       
       
       <div id="remove_product_dialog">
-        <p id="remove_product_dialog_title">書籍情報削除</p>
+        <p id="remove_product_dialog_title">Xoá Sản Phẩm</p>
         <form id="remove_form">
-          <p id="remove_dialog_msg">の情報を削除しますか？<br> ※ この操作は取り消すことができません。</p>
+          <p id="remove_dialog_msg"></p>
           <div id="remove_product_button_area">
-            <button id="close_remove_product_button">キャンセル</button>
-            <button id="decide_remove_product_button">削除</button>
+            <button id="close_remove_product_button">huỷ</button>
+            <button id="decide_remove_product_button">xoá</button>
           </div>
-          <p id="remove_product_error">削除に失敗しました。</p>
+          <p id="remove_product_error">xoá thất bại</p>
         </form>
       </div>
       
@@ -120,7 +125,8 @@
 
     <script src="/js/logout.js"></script> 
     <script src="/js/addProduct.js"></script> 
-    
-    
+    <script src="/js/getProductInfo.js"></script> 
+    <script src="/js/editProductInfo.js"></script> 
+    <script src="/js/removeProductInfo.js"></script> 
   </body>
 </html>

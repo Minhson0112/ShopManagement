@@ -44,7 +44,7 @@ CREATE TABLE `admins`(
 );
 
 -- Thêm người dùng mặc định
-INSERT INTO `admins` (`userId`, `password`) VALUES ('Nhungshop', '1234abcd');
+INSERT INTO `admins` (`userId`, `password`) VALUES ('son', '1234abcd');
 
 -- Trigger để tự động thêm sản phẩm vào kho khi sản phẩm mới được thêm vào productInfo
 DELIMITER $$
