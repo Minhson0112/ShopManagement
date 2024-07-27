@@ -33,6 +33,7 @@ CREATE TABLE `entryProduct`(
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `productId` INT NOT NULL,
     `quantity` INT NOT NULL,
+    `price` INT NOT NULL,
     `entryDate` DATE NOT NULL,
     FOREIGN KEY(`productId`) REFERENCES `productInfo`(`productId`)
 );

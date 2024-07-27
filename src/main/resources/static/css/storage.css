@@ -1,0 +1,290 @@
+html {
+    height: 100%;
+  }
+  
+  body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    flex: 1;
+  
+  }
+  
+  #app_header {
+    background-color: #607d8b;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #app_title {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  #app_title img {
+    height: 40px;
+    width: 40px;
+    margin-right: 8px;
+  }
+  
+  #app_title p {
+    font-size: 32px;
+    color: #ffffff;
+    line-height: 40px;
+    margin: 0;
+  }
+  
+  #user_menu {
+    padding: 24px 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  #user_menu p {
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 24px;
+    margin-right: 4px;
+  }
+  
+  #logout_button {
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+  
+  #logout_button img {
+    height: 100%;
+    width: 100%;
+  }
+  
+  
+  #app_contents {
+    display: flex;
+    background-color: #ffffff;
+    height: 100%;
+  }
+  
+  #app_side_menu {
+    min-width: 200px;
+    background-color: #ffffff;
+    display: block;
+    box-shadow: 2px 0 2px 0 rgba(0,0,0,.3);
+    margin: 0;
+    padding: 0;
+  }
+  
+  #app_contents_area {
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 40px;
+    align-items: center;
+  }
+  
+  .app_side_menu_item {
+    background-color: #ffffff;
+    border-bottom: 1px solid #c2c2c2;
+    padding: 16px;
+    display: flex;
+  }
+  
+  .app_side_menu_item :hover {
+    background-color: rgb(0,0,0,0.3);
+  }
+  
+  .app_side_menu_item img {
+    margin-right: 16px;
+    height: 24px;
+    width: 24px;
+  }
+  
+  .app_side_menu_item a {
+    font-size: 20px;
+    color: #000000;
+    line-height: 24px;
+    text-decoration: none;
+  }
+  
+  
+  #page_title {
+    display: block;
+    font-size: 32px;
+    color: #000000;
+    line-height: 40px;
+    margin-bottom: 24px;
+  }
+    
+    
+  
+  .search_form {
+    background-color: #b0bec5;
+    margin-bottom: 24px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 560px;
+  }
+  
+  
+  .search_form label {
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 24px;
+  }
+  
+  .search_form input, .search_form select {
+    font-size: 16px;
+    color: #000000;
+    height: 24px;
+    border: none;
+  }
+  
+  #title_input_error {
+    font-size: 16px;
+    color: #ff0000;
+    display: none;
+    margin: 0;
+    line-height: 24px;
+  }
+  
+  #search_button {
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #607d8b;
+    margin: 16px auto 0;
+    height: 24px;
+    width: 100px;
+  }
+  
+  #search_error {
+    font-size: 16px;
+    color: #ff0000;
+    display: none;
+    text-align: center;
+    margin: 0;
+  }
+  
+  
+  
+  
+  .data_list {
+    border: 1px solid #c2c2c2;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  .data_list thead {
+    background-color: #607d8b;
+  }
+  
+  
+  .data_list th {
+    font-size: 16px;
+    color: #ffffff;
+    text-align: left;
+    padding: 8px;
+    height: 48px;
+  }
+  
+  
+  
+  #thf {
+    width: 100px;
+  }
+  #thl {
+    width: 48px;
+  }
+  
+  
+  #data_list_items {
+    background-color: #ffffff;
+  }
+  #data_list_items tr {
+    border: 1px solid #c2c2c2;
+  }
+  
+  
+  
+  #data_list_items td {
+    font-size: 16px;
+    color: #000000;
+    padding: 8px;
+    height: 48px;
+  }
+  
+  
+  
+  #tdf {
+    width: 176px;
+  }
+  
+  
+  #tdl1, #tdl2, #none {
+    width: 48px;
+  }
+  
+  
+  
+  .edit_product_button, .remove_product_button {
+    display: block;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+  
+  #data_list_items img {
+    height: 100%;
+    width: 100%;
+  }
+  
+  
+  
+  #add_product_button {
+    display: block;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+  
+  #add_product_button img {
+    height: 100%;
+    width: 100%;
+  }
+  
+  
+  #page_wrapper {
+      background-color: rgba(0, 0, 0, 0.4); 
+      display: none; 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      justify-content: center; 
+      align-items: center; 
+  }
+  
+  /* CSS for loading_dialog */
+  #loading_dialog {
+      width: 56px; 
+      height: 56px; 
+      display: none; 
+  }
+  
