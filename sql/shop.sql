@@ -12,7 +12,7 @@ CREATE TABLE `productInfo`(
     UNIQUE(`productName`)
 );
 
-CREATE TABLE `wareHouse`(
+CREATE TABLE `storage`(
     `productId` INT NOT NULL PRIMARY KEY,
     `quantity` INT NOT NULL DEFAULT 0,
     FOREIGN KEY(`productId`) REFERENCES `productInfo`(`productId`)
@@ -53,7 +53,7 @@ CREATE TRIGGER after_product_insert
 AFTER INSERT ON productInfo
 FOR EACH ROW
 BEGIN
-    INSERT INTO wareHouse (productId, quantity) VALUES (NEW.productId, 0);
+    INSERT INTO storage (productId, quantity) VALUES (NEW.productId, 0);
 END$$
 DELIMITER ;
 
@@ -63,6 +63,6 @@ CREATE TRIGGER after_entry_insert
 AFTER INSERT ON entryProduct
 FOR EACH ROW
 BEGIN
-    UPDATE wareHouse SET quantity = quantity + NEW.quantity WHERE productId = NEW.productId;
+    UPDATE storage SET quantity = quantity + NEW.quantity WHERE productId = NEW.productId;
 END$$
 DELIMITER ;

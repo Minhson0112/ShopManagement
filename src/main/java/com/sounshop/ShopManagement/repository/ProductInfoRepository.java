@@ -1,7 +1,6 @@
 package com.sounshop.ShopManagement.repository;
 
 import com.sounshop.ShopManagement.entity.ProductInfo;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -24,11 +23,15 @@ public interface ProductInfoRepository extends CrudRepository<ProductInfo, Integ
         @Param("isDelete") Boolean isDelete
     );
 
-    
     @Query(value = "SELECT productId, productName, category, entryPrice, sellPrice, addDate, isDelete FROM productInfo WHERE isDelete = false", nativeQuery = true)
     List<ProductInfo> findAllProductInfo();
 
-    List<ProductInfo> findByProductNameContainingAndCategory(String productName, String category);
-    List<ProductInfo> findByProductNameContaining(String productName);
-    List<ProductInfo> findByCategory(String category);
+    @Query(value = "SELECT * FROM productInfo WHERE productName LIKE %:productName% AND category = :category AND isDelete = false", nativeQuery = true)
+    List<ProductInfo> findByProductNameContainingAndCategory(@Param("productName") String productName, @Param("category") String category);
+
+    @Query(value = "SELECT * FROM productInfo WHERE productName LIKE %:productName% AND isDelete = false", nativeQuery = true)
+    List<ProductInfo> findByProductNameContaining(@Param("productName") String productName);
+
+    @Query(value = "SELECT * FROM productInfo WHERE category = :category AND isDelete = false", nativeQuery = true)
+    List<ProductInfo> findByCategory(@Param("category") String category);
 }

@@ -2,8 +2,8 @@ package com.sounshop.ShopManagement.service;
 
 import com.sounshop.ShopManagement.entity.ProductInfo;
 import com.sounshop.ShopManagement.repository.ProductInfoRepository;
-import com.sounshop.ShopManagement.entity.WareHouse;
-import com.sounshop.ShopManagement.repository.WareHouseRepository;
+import com.sounshop.ShopManagement.entity.Storage;
+import com.sounshop.ShopManagement.repository.StorageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -14,7 +14,7 @@ public class ProductInfoService {
     private ProductInfoRepository productInfoRepository;
 
     @Autowired
-    private WareHouseRepository wareHouseRepository;
+    private StorageRepository storageRepository;
 
     public ProductInfo saveProduct(ProductInfo productInfo) {
         productInfoRepository.saveProductInfo(
@@ -56,8 +56,8 @@ public class ProductInfoService {
     }
 
     public void deleteProduct(Integer productId) {
-        WareHouse wareHouse = wareHouseRepository.findByProductId(productId);
-        if (wareHouse != null && wareHouse.getQuantity() == 0) {
+        Storage storage = storageRepository.findByProductId(productId);
+        if (storage != null && storage.getQuantity() == 0) {
             ProductInfo productInfo = productInfoRepository.findById(productId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid product Id:" + productId));
             productInfo.setIsDelete(true);

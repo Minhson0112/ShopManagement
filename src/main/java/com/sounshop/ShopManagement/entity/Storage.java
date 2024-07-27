@@ -1,19 +1,25 @@
 package com.sounshop.ShopManagement.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "wareHouse")
-public class WareHouse {
+@Table(name = "storage")
+public class Storage {
+
     @Id
-    @Column(name = "productId", nullable = false)
+    @Column(name = "productId")
     private Integer productId;
 
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
+
+    // Constructors
+    public Storage() {}
+
+    public Storage(Integer productId, Integer quantity) {
+        this.productId = productId;
+        this.quantity = quantity;
+    }
 
     // Getters and Setters
     public Integer getProductId() {
