@@ -26,6 +26,14 @@ public class shopController {
         return "storage";
     }
     
+    @GetMapping(value = "/entryProduct")
+    public String entryProduct(HttpServletRequest request, Model model) {
+        CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
+        model.addAttribute("_csrf", csrfToken);
+        System.out.println("check nhập hàng");
+
+        return "entryProduct";
+    }
 
     @GetMapping(value = "/login")
     public String login(HttpServletRequest request, Model model) {

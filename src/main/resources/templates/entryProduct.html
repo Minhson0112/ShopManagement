@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <link rel="stylesheet" href="/css/entryProduct.css">
+   
+  </head>
+  <body>
+    <header th:replace="~{common/header :: header()}"></header>
+    
+    <div id="app_contents">
+      <div th:replace="~{common/side_menu :: side_menu()}"></div>
+      
+      <div id="app_contents_area">
+        <p id="page_title">Nhập Hàng</p>
+        <form class="search_form">
+          <label for="title_input">Tên SP:</label>
+          <input type="text" id="title_input" name="title_input" >
+          <p id="title_input_error">tên sản phẩm không vượt quá 200 kí tự</p>
+          <label for="category_select">Chủng Loại:</label>
+          <select id="category_select" name="category_select">
+            <option value="" selected>Ấn vào đây để chọn</option>
+          </select>
+          <button id="search_button">Tìm Kiếm Lịch Sử Nhập Hàng</button>
+          <p id="search_error">Tìm Kiếm Thất Bại</p>
+        </form>
+        <table class="data_list">
+          <thead>
+            <tr>
+              <th id="thf">ID Nhập Hàng</th>
+              <th>Tên SP</th>
+              <th>Chủng Loại</th>
+              <th>Số Lượng Nhập</th>
+              <th>Tổng Giá Nhập</th>
+              <th>Ngày Nhập</th>
+              <th id="thl"><button id="add_product_button"><img src="/imgs/import.png"></button></th>
+            </tr>
+          </thead>
+          <tbody id="data_list_items">
+            <tr>
+              <td id="tdf"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="page_wrapper">
+      <img id="loading_dialog" src="/imgs/loading.gif" alt="loading">
+      
+    <script src="/js/logout.js"></script> 
+
+  </body>
+</html>
