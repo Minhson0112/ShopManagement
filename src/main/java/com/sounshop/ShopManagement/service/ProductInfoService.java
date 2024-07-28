@@ -33,6 +33,10 @@ public class ProductInfoService {
         return (List<ProductInfo>) productInfoRepository.findAllProductInfo();
     }
 
+    public ProductInfo findProductByName(String name) {
+        return productInfoRepository.findByProductName(name);
+    }
+
    
     public List<ProductInfo> findProducts(String title, String category) {
         if (title != null && category != null) {

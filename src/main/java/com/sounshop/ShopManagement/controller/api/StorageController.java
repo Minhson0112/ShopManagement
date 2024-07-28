@@ -16,6 +16,7 @@ public class StorageController {
 
     @GetMapping
     public ResponseEntity<List<StorageDTO>> getSearchResults(@RequestParam(required = false) String title, @RequestParam(required = false) String category) {
+        System.out.println("check /api/storage method: get");
         List<StorageDTO> storageList = storageService.findStorage(title, category);
         return ResponseEntity.ok(storageList);
     }

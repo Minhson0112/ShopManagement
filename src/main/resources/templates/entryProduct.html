@@ -18,16 +18,26 @@
       <div id="app_contents_area">
         <p id="page_title">Nhập Hàng</p>
         <form class="search_form">
-          <label for="title_input">Tên SP:</label>
-          <input type="text" id="title_input" name="title_input" >
-          <p id="title_input_error">tên sản phẩm không vượt quá 200 kí tự</p>
-          <label for="category_select">Chủng Loại:</label>
-          <select id="category_select" name="category_select">
+          <label for="title_select">Tên SP:</label>
+          <select id="title_select" name="title_select">
             <option value="" selected>Ấn vào đây để chọn</option>
           </select>
+          <button class="swich_type_date"><img src="/imgs/swich.png" alt="swich"></button>
+          <div id="module1">
+            <label for="day_input">Nhập ngày(ấn nút bên trên để đổi kiểu nhập)</label>
+            <input type="date" name="day_input"  id="day_input">
+          </div>
+          <div id="module2">
+            <label for="day_input_before">Nhập khoảng ngày(ấn nút bên trên để đổi kiểu nhập)</label>
+            <div id="date_area">
+              <input type="date" name="day_input_before"  id="day_input_before"> <p>  ~  </p> <input type="date" name="day_input_after"  id="day_input_after">
+            </div>
+          </div>
+          
           <button id="search_button">Tìm Kiếm Lịch Sử Nhập Hàng</button>
           <p id="search_error">Tìm Kiếm Thất Bại</p>
         </form>
+     
         <table class="data_list">
           <thead>
             <tr>
@@ -37,7 +47,7 @@
               <th>Số Lượng Nhập</th>
               <th>Tổng Giá Nhập</th>
               <th>Ngày Nhập</th>
-              <th id="thl"><button id="add_product_button"><img src="/imgs/import.png"></button></th>
+              <th id="thl"><button id="add_entry_product_button"><img src="/imgs/import.png"></button></th>
             </tr>
           </thead>
           <tbody id="data_list_items">
@@ -56,8 +66,29 @@
     </div>
     <div id="page_wrapper">
       <img id="loading_dialog" src="/imgs/loading.gif" alt="loading">
-      
+
+      <div id="add_entry_product_dialog">
+        <p id="add_product_dialog_title">Nhập Hàng</p>
+        <form id="add_form">
+          <label for="title_select">Tên SP:</label>
+          <select id="title_select1" name="title_select">
+            <option value="" selected>Ấn vào đây để chọn</option>
+          </select>
+          <label for="input_quantity">Số Lượng Nhập:</label>
+          <input type="number" id="input_quantity" name="input_quantity">
+
+          <div id="add_entry_product_button_area">
+            <button id="close_add_entry_product_button">Huỷ</button>
+            <button id="decide_add_entry_product_button">Xác Nhận</button>
+          </div>
+          <p id="add_entry_product_error">Nhập Hàng Thất Bại</p>
+        </form>
+      </div>
+
+    </div>
     <script src="/js/logout.js"></script> 
+    <script src="/js/getEntryProduct.js"></script>
+    <script src="/js/addEntryproduct.js"></script>
 
   </body>
 </html>

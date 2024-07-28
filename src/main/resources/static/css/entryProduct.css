@@ -150,15 +150,41 @@ html {
     height: 24px;
     border: none;
   }
-  
-  #title_input_error {
+
+  .swich_type_date {
+    width: 30px;
+    height: 30px;
+    padding: 0; /* Loại bỏ padding để hình ảnh không bị đẩy ra ngoài */
+    box-sizing: border-box; /* Đảm bảo kích thước bao gồm cả padding và border */
+    display: flex; /* Sử dụng flexbox để căn giữa hình ảnh */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    margin-top: 20px;
+  }
+  .swich_type_date img {
+    width: 30px;
+    height: 30px;
+  }
+  #date_area p {
     font-size: 16px;
-    color: #ff0000;
+    color: #ffffff;
+    line-height: 0px;
+  }
+  #module1 {
+    display: flex;
+    flex-direction: column;
+  }
+  #module2 {
     display: none;
-    margin: 0;
-    line-height: 24px;
+    flex-direction: column;
+
   }
   
+  #date_area {
+    display: flex;
+    gap: 20px;
+  }
+
   #search_button {
     font-size: 16px;
     color: #ffffff;
@@ -202,7 +228,7 @@ html {
   
   
   #thf {
-    width: 100px;
+    width: 120px;
   }
   #thl {
     width: 48px;
@@ -254,7 +280,7 @@ html {
   
   
   
-  #add_product_button {
+  #add_entry_product_button {
     display: block;
     width: 32px;
     height: 32px;
@@ -263,7 +289,7 @@ html {
     background-color: transparent;
   }
   
-  #add_product_button img {
+  #add_entry_product_button img {
     height: 100%;
     width: 100%;
   }
@@ -288,3 +314,69 @@ html {
       display: none; 
   }
   
+
+  #add_entry_product_dialog {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 24px;
+    width: 300px;
+
+  }
+
+  #add_product_dialog_title {
+    color: #000000;
+    font-size: 24px;
+  }
+
+  #add_form label {
+    display: block;
+    margin-top: 20px;
+    color: #000000;
+    font-size: 16px;
+    text-align: left;
+  }
+  
+  #title_select1, #input_quantity {
+    font-size: 16px;
+    color: #000000;
+    border: 1px solid #c2c2c2;
+    width: 100%;
+  }
+
+
+  #add_entry_product_button_area {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+    
+  #close_add_entry_product_button {
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #607d8b;
+    width: 100px;
+    height: 24px;
+    margin: 0 24px 0 0;
+  }
+    
+  #decide_add_entry_product_button{
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #607d8b;
+    width: 100px;
+    height: 24px;
+    margin: 0;
+  }
+  #add_entry_product_error {
+    font-size: 16px;
+    color: #ff0000;
+    line-height: 24px;
+    text-align: center;
+    display: none;
+    margin: 0;
+  }

@@ -25,6 +25,7 @@ CREATE TABLE `salesInfo`(
     `address` VARCHAR(255) NOT NULL,
     `tradingQuantity` INT NOT NULL,
     `price` INT NOT NULL,
+    `profit` INT NOT NULL,
     `tradingDate` DATE NOT NULL,
     FOREIGN KEY(`productId`) REFERENCES `productInfo`(`productId`)
 );

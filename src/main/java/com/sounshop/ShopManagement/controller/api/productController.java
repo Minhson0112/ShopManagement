@@ -36,18 +36,21 @@ public class productController {
     }
     @GetMapping
     public ResponseEntity<List<ProductInfo>> getAllProductInfo() {
+        System.out.println("check /api/productInfo method: get");
         List<ProductInfo> productInfoList = productInfoService.getAllProductInfo();
         return ResponseEntity.ok(productInfoList);
     }
 
     @GetMapping("/search")
     public ResponseEntity<List<ProductInfo>> getSearchResults(@RequestParam(required = false) String title, @RequestParam(required = false) String category) {
+        System.out.println("check /api/productInfo/search method: get");
         List<ProductInfo> products = productInfoService.findProducts(title, category);
         return ResponseEntity.ok(products);
     }
 
     @PutMapping("/{productId}")
     public ResponseEntity<ProductInfo> updateProductInfo(@PathVariable Integer productId, @RequestBody Map<String, Object> payload) {
+        System.out.println("check /api/productInfo method: put");
         String productName = (String) payload.get("productName");
         String category = (String) payload.get("category");
         Integer entryPrice = Integer.parseInt(payload.get("entryPrice").toString());

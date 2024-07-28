@@ -34,4 +34,7 @@ public interface ProductInfoRepository extends CrudRepository<ProductInfo, Integ
 
     @Query(value = "SELECT * FROM productInfo WHERE category = :category AND isDelete = false", nativeQuery = true)
     List<ProductInfo> findByCategory(@Param("category") String category);
+
+    @Query(value = "SELECT * FROM productInfo WHERE productName = :productName AND isDelete = false", nativeQuery = true)
+    ProductInfo findByProductName(@Param("productName") String productName);
 }
