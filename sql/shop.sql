@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS sounshop;
 CREATE DATABASE IF NOT EXISTS sounshop;
 USE sounshop;
 
@@ -80,6 +81,7 @@ BEGIN
 END$$
 DELIMITER ;
 -- Import dữ liệu từ file CSV vào bảng productInfo
+
 LOAD DATA INFILE '/Users/stone/ShopManagement/sql/productInfo.csv'
 INTO TABLE productInfo
 FIELDS TERMINATED BY ','
