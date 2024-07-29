@@ -26,10 +26,10 @@ public interface ProductInfoRepository extends CrudRepository<ProductInfo, Integ
     @Query(value = "SELECT productId, productName, category, entryPrice, sellPrice, addDate, isDelete FROM productInfo WHERE isDelete = false", nativeQuery = true)
     List<ProductInfo> findAllProductInfo();
 
-    @Query(value = "SELECT * FROM productInfo WHERE productName LIKE %:productName% AND category = :category AND isDelete = false", nativeQuery = true)
+    @Query(value = "SELECT * FROM productInfo WHERE productName LIKE CONCAT('%',:productName,'%') AND category = :category AND isDelete = false", nativeQuery = true)
     List<ProductInfo> findByProductNameContainingAndCategory(@Param("productName") String productName, @Param("category") String category);
 
-    @Query(value = "SELECT * FROM productInfo WHERE productName LIKE %:productName% AND isDelete = false", nativeQuery = true)
+    @Query(value = "SELECT * FROM productInfo WHERE productName LIKE CONCAT('%',:productName,'%') AND isDelete = false", nativeQuery = true)
     List<ProductInfo> findByProductNameContaining(@Param("productName") String productName);
 
     @Query(value = "SELECT * FROM productInfo WHERE category = :category AND isDelete = false", nativeQuery = true)
