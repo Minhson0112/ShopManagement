@@ -1,5 +1,6 @@
 package com.sounshop.ShopManagement.repository;
 
+import com.sounshop.ShopManagement.dto.ProductStorageDTO;
 import com.sounshop.ShopManagement.entity.ProductInfo;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ProductInfoRepository extends CrudRepository<ProductInfo, Integer> {
@@ -37,4 +39,11 @@ public interface ProductInfoRepository extends CrudRepository<ProductInfo, Integ
 
     @Query(value = "SELECT * FROM productInfo WHERE productName = :productName AND isDelete = false", nativeQuery = true)
     ProductInfo findByProductName(@Param("productName") String productName);
+
+    @Query("SELECT new com.sounshop.ShopManagement.dto.ProductStorageDTO(p.productId, p.entryPrice, p.sellPrice, s.quantity) " +
+    "FROM ProductInfo p " +
+    "JOIN Storage s ON p.productId = s.productId " +
+    "WHERE p.productName = :productName")
+    Optional<ProductStorageDTO> findProductStorageByProductName(@Param("productName") String productName);
+
 }

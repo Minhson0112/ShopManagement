@@ -315,7 +315,7 @@ html {
   }
   
 
-  #add_entry_product_dialog {
+  #add_sales_dialog {
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -323,11 +323,9 @@ html {
     background-color: #ffffff;
     border-radius: 4px;
     padding: 24px;
-    width: 300px;
-
   }
 
-  #add_product_dialog_title {
+  #add_sales_dialog_title {
     color: #000000;
     font-size: 24px;
   }
@@ -340,7 +338,7 @@ html {
     text-align: left;
   }
   
-  #title_select1, #input_quantity {
+  #add_form input, #add_form select  {
     font-size: 16px;
     color: #000000;
     border: 1px solid #c2c2c2;
@@ -348,14 +346,14 @@ html {
   }
 
 
-  #add_entry_product_button_area {
+  #add_sales_button_area {
     display: flex;
     justify-content: center;
     margin-top: 20px;
   }
   
     
-  #close_add_entry_product_button {
+  #close_add_sales_button {
     font-size: 16px;
     color: #ffffff;
     background-color: #607d8b;
@@ -364,7 +362,7 @@ html {
     margin: 0 24px 0 0;
   }
     
-  #decide_add_entry_product_button{
+  #decide_add_sales_button{
     font-size: 16px;
     color: #ffffff;
     background-color: #607d8b;
@@ -372,7 +370,7 @@ html {
     height: 24px;
     margin: 0;
   }
-  #add_entry_product_error {
+  #add_sales_error {
     font-size: 16px;
     color: #ff0000;
     line-height: 24px;

@@ -1,5 +1,6 @@
 package com.sounshop.ShopManagement.service;
 
+import com.sounshop.ShopManagement.dto.ProductStorageDTO;
 import com.sounshop.ShopManagement.entity.ProductInfo;
 import com.sounshop.ShopManagement.repository.ProductInfoRepository;
 import com.sounshop.ShopManagement.entity.Storage;
@@ -7,6 +8,7 @@ import com.sounshop.ShopManagement.repository.StorageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 @Service
 public class ProductInfoService {
 
@@ -69,5 +71,9 @@ public class ProductInfoService {
         } else {
             throw new IllegalArgumentException("Cannot delete product with non-zero quantity in warehouse");
         }
+    }
+
+    public Optional<ProductStorageDTO> findProductStorageByProductName(String productName) {
+        return productInfoRepository.findProductStorageByProductName(productName);
     }
 }

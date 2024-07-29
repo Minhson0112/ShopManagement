@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const titleSelect = document.getElementById('title_select');
+    const titleSelect1 = document.getElementById('title_select1');
     const pageWrapper = document.getElementById('page_wrapper');
     const loadingDialog = document.getElementById('loading_dialog');
     const searchError = document.getElementById('search_error');
@@ -9,12 +10,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchButton = document.getElementById('search_button');
 
     function updateTitleSelect(products) {
-        titleSelect.innerHTML = '<option value="" selected>Ấn vào đây để chọn</option>';
+        // Clear existing options in both select elements
+        [titleSelect, titleSelect1].forEach(select => {
+            select.innerHTML = '<option value="" selected>Ấn vào đây để chọn</option>';
+        });
+
+        // Add options to both select elements
         products.forEach(product => {
-            const option = document.createElement('option');
-            option.value = product.productName;
-            option.textContent = product.productName;
-            titleSelect.appendChild(option);
+            [titleSelect, titleSelect1].forEach(select => {
+                const option = document.createElement('option');
+                option.value = product.productName;
+                option.textContent = product.productName;
+                select.appendChild(option);
+            });
         });
     }
 
@@ -52,6 +60,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function fetchSalesInfo(title, day, dayBefore, dayAfter) {
         const url = new URL('/api/salesInfo/search', window.location.origin);
+        
+        if (!title && !day && (!dayBefore || !dayAfter)) {
+            location.reload();
+        }
+
         if (title) {
             url.searchParams.append('title', title);
         }

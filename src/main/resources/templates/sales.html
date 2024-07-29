@@ -69,27 +69,38 @@
     <div id="page_wrapper">
       <img id="loading_dialog" src="/imgs/loading.gif" alt="loading">
 
-      {% comment %} <div id="add_entry_product_dialog">
-        <p id="add_product_dialog_title">Bán Hàng</p>
+       <div id="add_sales_dialog">
+        <p id="add_sales_dialog_title">Bán Hàng</p>
         <form id="add_form">
-          <label for="title_select">Tên SP:</label>
-          <select id="title_select1" name="title_select">
+          <label for="title_select1">Tên SP:</label>
+          <select id="title_select1" name="title_select1">
             <option value="" selected>Ấn vào đây để chọn</option>
           </select>
-          <label for="input_quantity">Số Lượng Nhập:</label>
+
+          <label for="input_quantity">Số Lượng :</label>
           <input type="number" id="input_quantity" name="input_quantity">
 
-          <div id="add_entry_product_button_area">
-            <button id="close_add_entry_product_button">Huỷ</button>
-            <button id="decide_add_entry_product_button">Xác Nhận</button>
+          <label for="select_clienName">Tên Khách Hàng:</label>
+          <select id="select_clienName" name="select_clienName">
+            <option value = "" selected>Chọn Tên khách Đã Từng Mua</option>
+          </select>
+          <input type="text" id="input_clienName" placeholder="Nhập Tên Khách Hàng Mới">
+
+          <label for="input_address">Địa chỉ Giao Hàng:</label>
+          <textarea id="input_address" name="input_address" rows="4" cols="60"></textarea>
+
+          <div id="add_sales_button_area">
+            <button id="close_add_sales_button">Huỷ</button>
+            <button id="decide_add_sales_button">Xác Nhận</button>
           </div>
-          <p id="add_entry_product_error">Nhập Hàng Thất Bại</p>
+          <p id="add_sales_error">Bán Thất Bại</p>
         </form>
-      </div> {% endcomment %}
+      </div> 
 
     </div>
     <script src="/js/logout.js"></script> 
     <script src="/js/getSalesInfo.js"></script> 
+    <script src="/js/addSalesInfo.js"></script> 
 
 
 

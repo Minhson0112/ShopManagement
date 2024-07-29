@@ -1,6 +1,7 @@
 package com.sounshop.ShopManagement.service;
 
 import com.sounshop.ShopManagement.dto.SalesInfoDTO;
+import com.sounshop.ShopManagement.entity.SalesInfo;
 import com.sounshop.ShopManagement.repository.SalesInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,5 +32,9 @@ public class SalesInfoService {
         } else {
             return salesInfoRepository.findByProductNameContaining(title);
         }
+    }
+
+    public SalesInfo saveSalesInfo(SalesInfo salesInfo) {
+        return salesInfoRepository.save(salesInfo);
     }
 }
