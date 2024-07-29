@@ -280,7 +280,7 @@ html {
   
   
   
-  #add_entry_product_button {
+  #add_sales_button {
     display: block;
     width: 32px;
     height: 32px;
@@ -289,7 +289,7 @@ html {
     background-color: transparent;
   }
   
-  #add_entry_product_button img {
+  #add_sales_button img {
     height: 100%;
     width: 100%;
   }

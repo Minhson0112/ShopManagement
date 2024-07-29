@@ -48,7 +48,7 @@
               <th>Số Lượng</th>
               <th>Tổng giá</th>
               <th>Ngày Bán</th>
-              <th id="thl"><button id="add_entry_product_button"><img src="/imgs/cart.png"></button></th>
+              <th id="thl"><button id="add_sales_button"><img src="/imgs/cart.png"></button></th>
             </tr>
           </thead>
           <tbody id="data_list_items">
@@ -69,8 +69,8 @@
     <div id="page_wrapper">
       <img id="loading_dialog" src="/imgs/loading.gif" alt="loading">
 
-      <div id="add_entry_product_dialog">
-        <p id="add_product_dialog_title">Nhập Hàng</p>
+      {% comment %} <div id="add_entry_product_dialog">
+        <p id="add_product_dialog_title">Bán Hàng</p>
         <form id="add_form">
           <label for="title_select">Tên SP:</label>
           <select id="title_select1" name="title_select">
@@ -85,10 +85,11 @@
           </div>
           <p id="add_entry_product_error">Nhập Hàng Thất Bại</p>
         </form>
-      </div>
+      </div> {% endcomment %}
 
     </div>
     <script src="/js/logout.js"></script> 
+    <script src="/js/getSalesInfo.js"></script> 
 
 
 

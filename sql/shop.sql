@@ -67,3 +67,23 @@ BEGIN
     UPDATE storage SET quantity = quantity + NEW.quantity WHERE productId = NEW.productId;
 END$$
 DELIMITER ;
+
+-- Trigger để giảm số lượng sản phẩm trong kho khi có giao dịch bán hàng
+DELIMITER $$
+CREATE TRIGGER after_sales_insert
+AFTER INSERT ON salesInfo
+FOR EACH ROW
+BEGIN
+    UPDATE storage
+    SET quantity = quantity - NEW.tradingQuantity
+    WHERE productId = NEW.productId;
+END$$
+DELIMITER ;
+-- Import dữ liệu từ file CSV vào bảng productInfo
+LOAD DATA INFILE '/Users/stone/ShopManagement/sql/productInfo.csv'
+INTO TABLE productInfo
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(productName, category, entryPrice, sellPrice, addDate, isDelete);

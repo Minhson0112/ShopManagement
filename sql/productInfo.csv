@@ -1,0 +1,40 @@
+productName,category,entryPrice,sellPrice,addDate,isDelete
+táo đỏ,táo,400,1100,2023-01-01,FALSE
+tất trắng,tất,200,600,2023-02-01,FALSE
+trà tranh,đồ uống,400,1200,2023-03-01,FALSE
+táo xanh,táo,300,850,2023-04-01,FALSE
+coca,đồ uống,200,550,2023-05-01,FALSE
+mi giả,trang điểm,300,700,2023-05-01,FALSE
+phấn mắt,trang điểm,200,500,2023-05-01,FALSE
+táo tàu,táo,200,700,2023-05-01,FALSE
+chuối xấy,ăn vặt,300,800,2023-05-01,FALSE
+bim bim,ăn vặt,200,500,2023-05-01,FALSE
+táo aomori,táo,400,1350,2023-05-01,FALSE
+kẻ mi,trang điểm,250,500,2023-05-01,FALSE
+túi xách đen,túi,300,800,2023-05-01,FALSE
+túi xách trắng,túi,350,850,2023-05-01,FALSE
+túi xách vàng,túi,300,800,2023-05-01,FALSE
+trà giải độc,đồ uống,250,600,2023-05-01,FALSE
+kẹo dừa,ăn vặt,200,600,2023-05-01,FALSE
+bánh đậu xanh,ăn vặt,400,1500,2023-05-01,FALSE
+tất dài,tất,250,500,2023-05-01,FALSE
+trà chanh leo,đồ uống,300,800,2023-05-01,FALSE
+váy học sinh,váy,350,800,2023-05-01,FALSE
+chân váy đen,váy,600,1600,2023-05-01,FALSE
+chân váy trắng,váy,650,1650,2023-05-01,FALSE
+váy ngắn trắng,váy,450,1300,2023-05-01,FALSE
+váy ngắn đen,váy,450,1300,2023-05-01,FALSE
+váy kẻ sọc,váy,350,900,2023-05-01,FALSE
+trà ngô,đồ uống,200,600,2023-05-01,FALSE
+bảng phấn 30 màu,trang điểm,500,1250,2023-05-01,FALSE
+mít xấy,ăn vặt,450,1300,2023-05-01,FALSE
+túi LOUIS VUITTON,túi,130000,240000,2023-05-01,FALSE
+nước mắm nam ngư,đồ uống,300,650,2023-05-01,FALSE
+táo xấy,ăn vặt,300,800,2023-05-01,FALSE
+táo tân cương,táo,360,960,2023-05-01,FALSE
+trà nho,đồ uống,500,1500,2023-05-01,FALSE
+nước thánh,đồ uống,500,1800,2023-05-01,FALSE
+thuốc ho,thuốc,200,600,2023-05-01,FALSE
+thuốc hạ sốt,thuốc,340,900,2023-05-01,FALSE
+thuốc kháng sinh,thuốc,300,800,2023-05-01,FALSE
+thuốc tiêu chảy,thuốc,350,850,2023-05-01,FALSE
