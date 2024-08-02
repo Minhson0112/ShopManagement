@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface StorageRepository extends CrudRepository<Storage, Integer> {
+       
     Storage findByProductId(Integer productId);
 
     @Query("SELECT new com.sounshop.ShopManagement.dto.StorageDTO(s.productId, p.productName, p.category, s.quantity) " +

@@ -39,6 +39,11 @@ public class EntryProductController {
             @RequestParam(required = false) LocalDate dayBefore,
             @RequestParam(required = false) LocalDate dayAfter) {
         System.out.println("check get  /api/entryProduct/search");
+        System.out.println("check title: " + title);
+        System.out.println("check day: " + day);
+        System.out.println("check dayBefore: " + dayBefore);
+        System.out.println("check dayAfter: " + dayAfter);
+
         List<EntryProductDTO> entryProductList = entryProductService.searchEntryProducts(title, day, dayBefore, dayAfter);
         return ResponseEntity.ok(entryProductList);
     }

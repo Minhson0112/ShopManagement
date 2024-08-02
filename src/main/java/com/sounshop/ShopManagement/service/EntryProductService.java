@@ -25,7 +25,6 @@ public class EntryProductService {
 
     public List<EntryProductDTO> searchEntryProducts(String title, LocalDate day, LocalDate dayBefore, LocalDate dayAfter) {
         if (day != null && title == null && dayBefore == null && dayAfter == null) {
-            // Truy vấn chỉ theo day
             return entryProductRepository.findByEntryDate(day);
         } else if (day != null) {
             return entryProductRepository.findByProductNameContainingAndEntryDate(title, day);

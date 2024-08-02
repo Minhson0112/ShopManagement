@@ -40,4 +40,7 @@ public interface EntryProductRepository extends CrudRepository<EntryProduct, Int
     @Query("SELECT new com.sounshop.ShopManagement.dto.EntryProductDTO(ep.id, p.productName, p.category, ep.quantity, ep.price, ep.entryDate) " +
        "FROM EntryProduct ep JOIN ProductInfo p ON ep.productId = p.productId WHERE ep.entryDate = :day AND p.isDelete = false")
     List<EntryProductDTO> findByEntryDate(@Param("day") LocalDate day);
+
+    
+
 }

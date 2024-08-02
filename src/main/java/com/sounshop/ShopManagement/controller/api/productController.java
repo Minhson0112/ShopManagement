@@ -63,14 +63,14 @@ public class productController {
     }
 
     @DeleteMapping("/{productId}")
-public ResponseEntity<Void> deleteProductInfo(@PathVariable Integer productId) {
-    System.out.println("check /api/productInfo/ method: delete");
-    try {
-        productInfoService.deleteProduct(productId);
-        return ResponseEntity.ok().build(); // Trả về mã trạng thái 200 OK mà không có nội dung
-    } catch (IllegalArgumentException e) {
-        return ResponseEntity.badRequest().build(); // Trả về mã trạng thái 400 Bad Request mà không có nội dung
+    public ResponseEntity<Void> deleteProductInfo(@PathVariable Integer productId) {
+        System.out.println("check /api/productInfo/ method: delete");
+        try {
+            productInfoService.deleteProduct(productId);
+            return ResponseEntity.ok().build(); // Trả về mã trạng thái 200 OK mà không có nội dung
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build(); // Trả về mã trạng thái 400 Bad Request mà không có nội dung
+        }
     }
-}
     
 }

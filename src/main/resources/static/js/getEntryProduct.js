@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const dayBefore = dayInputBefore.value.trim();
         const dayAfter = dayInputAfter.value.trim();
 
-        if (!title && !day && (!dayBefore || !dayAfter)) {
+        if (!title && !day && !dayBefore && !dayAfter) {
             location.reload();
         }
 
@@ -48,8 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (day) {
             url.searchParams.append('day', day);
         }
-        if (dayBefore && dayAfter) {
+        if (dayBefore) {
             url.searchParams.append('dayBefore', dayBefore);
+        }
+        if(dayAfter){
             url.searchParams.append('dayAfter', dayAfter);
         }
 
