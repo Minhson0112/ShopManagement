@@ -9,7 +9,7 @@ import com.sounshop.ShopManagement.dto.ProductStorageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +39,11 @@ public class SalesInfoController {
             @RequestParam(required = false) LocalDate dayAfter) {
         
         System.out.println("check /api/salesInfo/search get");
+        System.out.println("check title: " + title);
+        System.out.println("check day: " + day);
+        System.out.println("check dayBefore: " + dayBefore);
+        System.out.println("check dayAfter: " + dayAfter);
+
         List<SalesInfoDTO> salesInfoList = salesInfoService.searchSalesInfo(title, day, dayBefore, dayAfter);
         return ResponseEntity.ok(salesInfoList);
     }

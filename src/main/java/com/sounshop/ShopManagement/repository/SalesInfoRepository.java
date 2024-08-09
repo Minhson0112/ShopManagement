@@ -30,23 +30,12 @@ public interface SalesInfoRepository extends CrudRepository<SalesInfo, Integer> 
            "WHERE p.productName LIKE %:title% AND s.tradingDate BETWEEN :dayBefore AND :dayAfter AND p.isDelete = false")
     List<SalesInfoDTO> findByProductNameContainingAndTradingDateBetween(@Param("title") String title, @Param("dayBefore") LocalDate dayBefore, @Param("dayAfter") LocalDate dayAfter);
 
-    @Query("SELECT new com.sounshop.ShopManagement.dto.SalesInfoDTO(s.tradingId, p.productName, s.clientName, s.address, s.tradingQuantity, s.price, s.tradingDate) " +
-           "FROM SalesInfo s " +
-           "JOIN ProductInfo p ON s.productId = p.productId " +
-           "WHERE p.productName LIKE %:title% AND s.tradingDate <= :dayAfter AND p.isDelete = false")
-    List<SalesInfoDTO> findByProductNameContainingAndTradingDateBefore(@Param("title") String title, @Param("dayAfter") LocalDate dayAfter);
 
     @Query("SELECT new com.sounshop.ShopManagement.dto.SalesInfoDTO(s.tradingId, p.productName, s.clientName, s.address, s.tradingQuantity, s.price, s.tradingDate) " +
            "FROM SalesInfo s " +
            "JOIN ProductInfo p ON s.productId = p.productId " +
-           "WHERE p.productName LIKE %:title% AND s.tradingDate >= :dayBefore AND p.isDelete = false")
-    List<SalesInfoDTO> findByProductNameContainingAndTradingDateAfter(@Param("title") String title, @Param("dayBefore") LocalDate dayBefore);
-
-    @Query("SELECT new com.sounshop.ShopManagement.dto.SalesInfoDTO(s.tradingId, p.productName, s.clientName, s.address, s.tradingQuantity, s.price, s.tradingDate) " +
-           "FROM SalesInfo s " +
-           "JOIN ProductInfo p ON s.productId = p.productId " +
-           "WHERE p.productName LIKE %:title% AND p.isDelete = false")
-    List<SalesInfoDTO> findByProductNameContaining(@Param("title") String title);
+           "WHERE s.tradingDate BETWEEN :dayBefore AND :dayAfter AND p.isDelete = false")
+    List<SalesInfoDTO> findByTradingDateBetween(@Param("dayBefore") LocalDate dayBefore, @Param("dayAfter") LocalDate dayAfter);
 
     @Query("SELECT new com.sounshop.ShopManagement.dto.SalesInfoDTO(s.tradingId, p.productName, s.clientName, s.address, s.tradingQuantity, s.price, s.tradingDate) " +
            "FROM SalesInfo s " +

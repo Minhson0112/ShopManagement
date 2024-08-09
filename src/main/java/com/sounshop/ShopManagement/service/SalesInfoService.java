@@ -19,19 +19,16 @@ public class SalesInfoService {
     }
 
     public List<SalesInfoDTO> searchSalesInfo(String title, LocalDate day, LocalDate dayBefore, LocalDate dayAfter) {
-        if (day != null && title == null && dayBefore == null && dayAfter == null) {
-            return salesInfoRepository.findByTradingDate(day);
-        } else if (day != null) {
+        if (title != null && day != null) {
             return salesInfoRepository.findByProductNameContainingAndTradingDate(title, day);
-        } else if (dayBefore != null && dayAfter != null) {
-            return salesInfoRepository.findByProductNameContainingAndTradingDateBetween(title, dayBefore, dayAfter);
-        } else if (dayBefore != null) {
-            return salesInfoRepository.findByProductNameContainingAndTradingDateAfter(title, dayBefore);
-        } else if (dayAfter != null) {
-            return salesInfoRepository.findByProductNameContainingAndTradingDateBefore(title, dayAfter);
-        } else {
-            return salesInfoRepository.findByProductNameContaining(title);
         }
+        if (title != null) {
+            return salesInfoRepository.findByProductNameContainingAndTradingDateBetween(title, dayBefore, dayAfter);
+        }
+        if (day != null) {
+            return salesInfoRepository.findByTradingDate(day);
+        }
+        return salesInfoRepository.findByTradingDateBetween(dayBefore,dayAfter);
     }
 
     public SalesInfo saveSalesInfo(SalesInfo salesInfo) {
