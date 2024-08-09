@@ -24,18 +24,15 @@ public class EntryProductService {
     }
 
     public List<EntryProductDTO> searchEntryProducts(String title, LocalDate day, LocalDate dayBefore, LocalDate dayAfter) {
-        if (day != null && title == null && dayBefore == null && dayAfter == null) {
-            return entryProductRepository.findByEntryDate(day);
-        } else if (day != null) {
+        if (title != null && day != null) {
             return entryProductRepository.findByProductNameContainingAndEntryDate(title, day);
-        } else if (dayBefore != null && dayAfter != null) {
-            return entryProductRepository.findByProductNameContainingAndEntryDateBetween(title, dayBefore, dayAfter);
-        } else if (dayBefore != null) {
-            return entryProductRepository.findByProductNameContainingAndEntryDateBefore(title, dayBefore);
-        } else if (dayAfter != null) {
-            return entryProductRepository.findByProductNameContainingAndEntryDateAfter(title, dayAfter);
-        } else {
-            return entryProductRepository.findByProductNameContaining(title);
         }
+        if (title != null) {
+            return entryProductRepository.findByProductNameContainingAndEntryDateBetween(title, dayBefore, dayAfter);
+        }
+        if (day != null) {
+            return entryProductRepository.findByEntryDate(day);
+        }
+        return entryProductRepository.findByEntryDateBetween(dayBefore, dayAfter);
     }
 }

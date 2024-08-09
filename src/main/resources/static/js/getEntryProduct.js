@@ -17,9 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (module1.style.display === 'none') {
             module1.style.display = 'flex';
             module2.style.display = 'none';
+            dayInputBefore.value = '';
+            dayInputAfter.value = '';
         } else {
             module1.style.display = 'none';
             module2.style.display = 'flex';
+            dayInput.value = '';
         }
     });
 
@@ -29,17 +32,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const title = titleSelect.value.trim();
         const day = dayInput.value.trim();
-        const dayBefore = dayInputBefore.value.trim();
-        const dayAfter = dayInputAfter.value.trim();
+        let dayBefore = dayInputBefore.value.trim();
+        let dayAfter = dayInputAfter.value.trim();
 
         if (!title && !day && !dayBefore && !dayAfter) {
             location.reload();
         }
 
         if (dayBefore && dayAfter && dayBefore > dayAfter) {
+            searchError.textContent = "dayBefore > dayAfter";
             searchError.style.display = 'block';
             return;
         }
+
+        if (dayAfter === null || dayAfter === "") {
+            dayAfter = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
+        }
+
+        if (dayBefore === null || dayBefore === "") {
+            dayBefore = "2024-01-01";
+        }
+
+
 
         const url = new URL('/api/entryProduct/search', window.location.origin);
         if (title) {
@@ -54,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if(dayAfter){
             url.searchParams.append('dayAfter', dayAfter);
         }
+
 
         pageWrapper.style.display = 'flex';
         loadingDialog.style.display = 'block';
