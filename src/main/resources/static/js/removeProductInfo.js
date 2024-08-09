@@ -55,11 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (!response.ok) {
-                return response.text().then(text => { // Lấy thông báo lỗi từ server
-                    removeProductError.textContent = text; // Hiển thị thông báo lỗi
-                    removeProductError.style.display = 'block';
-                    throw new Error('Network response was not ok');
-                });
+                removeProductError.textContent = "Không thể xoá sản phẩm còn tồn kho";
+                removeProductError.style.display = 'block';
+                return Promise.reject('Error deleting product'); // Trả về một promise bị từ chối để dừng chuỗi promise
             } else {
                 return Promise.resolve(); // Trả về một promise rỗng nếu phản hồi thành công và không có nội dung
             }

@@ -64,19 +64,19 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             loadingDialog.style.display = 'none';
-            pageWrapper.style.display = 'none';
-            addSalesDialog.style.display = 'none';
             if (!response.ok) {
-                return response.json().then(errorData => {
-                    addSalesError.textContent = errorData.message || 'Đã xảy ra lỗi.';
-                    addSalesError.style.display = 'block';
-                    throw new Error('Network response was not ok');
-                });
+                addSalesError.textContent = "Không Đủ số lượng hàng trong kho";
+                addSalesError.style.display = 'block';
+                return;
             }
             return response.json();
         })
         .then(data => {
-            location.reload(); // Optionally reload the page to reflect the new sales entry
+            if(data){
+                pageWrapper.style.display = 'none';
+                addSalesDialog.style.display = 'none';
+                location.reload(); // Optionally reload the page to reflect the new sales entry
+            }
         })
         .catch(error => {
             console.error('Error:', error);
