@@ -16,18 +16,33 @@ public interface SalesInfoRepository extends CrudRepository<SalesInfo, Integer> 
     String FROM_JOIN = "FROM SalesInfo s JOIN ProductInfo p ON s.productId = p.productId ";
     String WHERE_NOT_DELETED = "WHERE p.isDelete = false";
 
-    @Query(SELECT_DTO + FROM_JOIN + WHERE_NOT_DELETED)
+    @Query(SELECT_DTO + FROM_JOIN)
     List<SalesInfoDTO> findAllSalesInfo();
 
-    @Query(SELECT_DTO + FROM_JOIN + "WHERE p.productName LIKE %:title% AND s.tradingDate = :day AND p.isDelete = false")
+    @Query(SELECT_DTO + FROM_JOIN + "WHERE p.productName LIKE %:title% AND s.tradingDate = :day")
     List<SalesInfoDTO> findByProductNameContainingAndTradingDate(@Param("title") String title, @Param("day") LocalDate day);
 
-    @Query(SELECT_DTO + FROM_JOIN + "WHERE p.productName LIKE %:title% AND s.tradingDate BETWEEN :dayBefore AND :dayAfter AND p.isDelete = false")
+    @Query(SELECT_DTO + FROM_JOIN + "WHERE p.productName LIKE %:title% AND s.tradingDate BETWEEN :dayBefore AND :dayAfter")
     List<SalesInfoDTO> findByProductNameContainingAndTradingDateBetween(@Param("title") String title, @Param("dayBefore") LocalDate dayBefore, @Param("dayAfter") LocalDate dayAfter);
 
-    @Query(SELECT_DTO + FROM_JOIN + "WHERE s.tradingDate BETWEEN :dayBefore AND :dayAfter AND p.isDelete = false")
+    @Query(SELECT_DTO + FROM_JOIN + "WHERE s.tradingDate BETWEEN :dayBefore AND :dayAfter")
     List<SalesInfoDTO> findByTradingDateBetween(@Param("dayBefore") LocalDate dayBefore, @Param("dayAfter") LocalDate dayAfter);
 
     @Query(SELECT_DTO + FROM_JOIN + "WHERE s.tradingDate = :day")
     List<SalesInfoDTO> findByTradingDate(@Param("day") LocalDate day);
+
+    @Query("SELECT COUNT(s) FROM SalesInfo s WHERE s.tradingDate = :today")
+    int countSalesInfoToday(@Param("today") LocalDate today);
+
+    @Query("SELECT COUNT(s) FROM SalesInfo s WHERE s.tradingDate = :yesterday")
+    int countSalesInfoYesterday(@Param("yesterday") LocalDate yesterday);
+
+    @Query("SELECT SUM(s.price) FROM SalesInfo s WHERE s.tradingDate = :today")
+    Integer sumPriceToday(@Param("today") LocalDate today);
+
+    @Query("SELECT SUM(s.price) FROM SalesInfo s WHERE s.tradingDate = :yesterday")
+    Integer sumPriceYesterday(@Param("yesterday") LocalDate yesterday);
+
+
+
 }

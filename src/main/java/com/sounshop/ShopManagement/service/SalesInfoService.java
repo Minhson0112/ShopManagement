@@ -34,4 +34,39 @@ public class SalesInfoService {
     public SalesInfo saveSalesInfo(SalesInfo salesInfo) {
         return salesInfoRepository.save(salesInfo);
     }
+
+    public int calculateOrderDifference(){
+        LocalDate today = LocalDate.now();
+        LocalDate yesterday = today.minusDays(1);
+
+        int todayOrders = salesInfoRepository.countSalesInfoToday(today);
+        int yesterdayOrders = salesInfoRepository.countSalesInfoYesterday(yesterday);
+
+        return todayOrders - yesterdayOrders;
+
+    }
+
+    public int numberOfOrderToday(){
+        LocalDate today = LocalDate.now();
+        return salesInfoRepository.countSalesInfoToday(today);
+    }
+
+    public int calculatePriceDifference(){
+        LocalDate today = LocalDate.now();
+        Integer  priceToday = salesInfoRepository.sumPriceToday(today);
+        Integer  priceYesterday = salesInfoRepository.sumPriceYesterday(today.minusDays(1));
+
+        int todayPrice = (priceToday != null) ? priceToday : 0;
+        int yesterdayPrice = (priceYesterday != null) ? priceYesterday : 0;
+    
+        return todayPrice - yesterdayPrice;
+    }
+
+    public int priceToday(){
+        LocalDate today = LocalDate.now();
+        Integer  priceToday = salesInfoRepository.sumPriceToday(today);
+        int todayPrice = (priceToday != null) ? priceToday : 0;
+
+        return todayPrice;
+    }
 }

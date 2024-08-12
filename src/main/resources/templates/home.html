@@ -21,14 +21,14 @@
 
           <div id="orders">
             <div id="box_title">
-              <h5>Số Đơn Hàng</h5>
-              <p>2024/8/9</p>
+              <h4>Số Đơn Hàng</h4>
+              <p th:text="${today}"></p>
             </div>
             <div id="box_content">
-              <h1>3</h1>
+              <h1 th:text="${numberOfOderToday}"></h1>
               <div>
                 <small>so với hôm qua</small>
-                <small>+1</small>
+                <small th:text="${order}" id="orderDifference" ></small>
               </div>
             </div>
 
@@ -36,14 +36,14 @@
 
           <div id="money">
             <div id="box_title">
-              <h5>Doanh thu hôm nay</h5>
-              <p>2024/8/9</p>
+              <h4>Doanh thu hôm nay</h4>
+              <p th:text="${today}"></p>
             </div>
             <div id="box_content">
-              <h1>25000</h1>
+              <h1 th:text="${priceToday}"></h1>
               <div>
                 <small>so với hôm qua</small>
-                <small>+3400</small>
+                <small th:text="${priceDifference}" id="priceDifference"></small>
               </div>
             </div>
 
@@ -162,5 +162,6 @@
     <script src="/js/getProductInfo.js"></script> 
     <script src="/js/editProductInfo.js"></script> 
     <script src="/js/removeProductInfo.js"></script> 
+    <script src="/js/homeDisplay.js"></script>
   </body>
 </html>
