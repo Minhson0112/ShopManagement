@@ -70,7 +70,7 @@ html {
   
   #app_contents {
     display: flex;
-    background-color: #ffffff;
+    background-color: #f3f3f4;
     height: 100%;
   }
   
@@ -184,6 +184,7 @@ html {
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
+    background-color: #ffffff;
   }
   
   .data_list thead {

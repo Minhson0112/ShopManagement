@@ -188,6 +188,7 @@ main {
   border-collapse: collapse;
   width: 100%;
   table-layout: fixed;
+  background-color: #ffffff;
 }
 
 .data_list thead {

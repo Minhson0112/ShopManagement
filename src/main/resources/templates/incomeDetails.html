@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <link rel="stylesheet" href="/css/incomeDetails.css">
+   
+  </head>
+  <body>
+    <header th:replace="~{common/header :: header()}"></header>
+    
+    <div id="app_contents">
+      <div th:replace="~{common/side_menu :: side_menu()}"></div>
+      
+      <div id="app_contents_area">
+        <p id="page_title">Chi Tiết Thu Chi</p>
+
+      </div>
+    </div>
+    <script src="/js/logout.js"></script> 
+  </body>
+</html>

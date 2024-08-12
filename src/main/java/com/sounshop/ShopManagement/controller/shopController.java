@@ -78,4 +78,12 @@ public class shopController {
         return "login";
     }
 
+    @GetMapping(value = "/income")
+    public String income(HttpServletRequest request, Model model) {
+        CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
+        model.addAttribute("_csrf", csrfToken);
+        System.out.println("check income");
+        return "incomeDetails";
+    }
+
 }
