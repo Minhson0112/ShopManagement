@@ -7,17 +7,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (orderDifference > 0) {
         order.style.color = "green";
-        order.textContent = "+" + orderDifference;
-    } else {
+        order.textContent = "+" + orderDifference + " 円";
+    } else if (orderDifference < 0) {
         order.style.color = "red";
-        order.textContent = orderDifference.toString();
+        order.textContent = orderDifference + " 円";
+    } else {
+        order.textContent = orderDifference + " 円";
     }
 
     if (priceDifference > 0) {
         price.style.color = "green";
-        price.textContent = "+" + priceDifference;
-    } else {
+        price.textContent = "+" + priceDifference + " 円";
+    } else if (priceDifference < 0) {
         price.style.color = "red";
-        price.textContent = priceDifference.toString();
+        price.textContent = priceDifference + " 円";
+    } else {
+        price.textContent = priceDifference + " 円";
     }
 });
