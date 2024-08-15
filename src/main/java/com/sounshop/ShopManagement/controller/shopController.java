@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import com.sounshop.ShopManagement.service.SalesInfoService;
+import com.sounshop.ShopManagement.service.IncomeDetailsService;
 
 
 @Controller
@@ -16,6 +17,9 @@ public class shopController {
 
     @Autowired
     private SalesInfoService salesInfoService;
+
+    @Autowired
+    private IncomeDetailsService incomeDetailsService;
 
     @GetMapping(value = "/home")
     public String homePage(HttpServletRequest request, Model model) {
@@ -82,6 +86,29 @@ public class shopController {
     public String income(HttpServletRequest request, Model model) {
         CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
         model.addAttribute("_csrf", csrfToken);
+
+        int currentMonthorders = incomeDetailsService.monthOrders();
+        model.addAttribute("currentMonthorders", currentMonthorders);
+
+        int orderDifference = incomeDetailsService.calculateOrderDifference();
+        model.addAttribute("orderDifference", orderDifference);
+
+        LocalDate today = LocalDate.now();
+        int currentMonth = today.getMonthValue();
+        model.addAttribute("currentMonth", currentMonth);
+
+
+        int uriage = incomeDetailsService.uriageOfmonth();
+        model.addAttribute("uriage", uriage);
+
+        int revenue = incomeDetailsService.revenueOfMonth();
+        model.addAttribute("revenue", revenue);
+
+        String clientName = incomeDetailsService.topClient();
+        model.addAttribute("clientName", clientName);
+
+        int countPurchases = incomeDetailsService.countPurchases();
+        model.addAttribute("countPurchases", countPurchases);
         System.out.println("check income");
         return "incomeDetails";
     }

@@ -43,6 +43,19 @@ public interface SalesInfoRepository extends CrudRepository<SalesInfo, Integer> 
     @Query("SELECT SUM(s.price) FROM SalesInfo s WHERE s.tradingDate = :yesterday")
     Integer sumPriceYesterday(@Param("yesterday") LocalDate yesterday);
 
+    @Query("SELECT COUNT(s) FROM SalesInfo s WHERE MONTH(s.tradingDate) = :month AND YEAR(s.tradingDate) = :year")
+    int orderOfMonth(@Param("month") int month, @Param("year") int year);
+    
+    @Query("SELECT SUM(s.price) FROM SalesInfo s WHERE MONTH(s.tradingDate) = :month AND YEAR(s.tradingDate) = :year ")
+    Integer uriage(@Param("month") int month, @Param("year") int year);
 
+    @Query("SELECT SUM(s.profit) FROM SalesInfo s WHERE MONTH(s.tradingDate) = :month AND YEAR(s.tradingDate) = :year ")
+    Integer revenue(@Param("month") int month, @Param("year") int year);
+
+    @Query("SELECT s.clientName FROM SalesInfo s WHERE MONTH(s.tradingDate) = :month AND YEAR(s.tradingDate) = :year GROUP BY s.clientName ORDER BY COUNT(s) DESC")
+    List<String> findTopClient(@Param("month") int month, @Param("year") int year);
+
+    @Query("SELECT COUNT(s) FROM SalesInfo s WHERE s.clientName = :clientName AND MONTH(s.tradingDate) = :month AND YEAR(s.tradingDate) = :year")
+    int countPurchasesByClient(@Param("clientName") String clientName, @Param("month") int month, @Param("year") int year);
 
 }

@@ -17,9 +17,54 @@
       
       <div id="app_contents_area">
         <p id="page_title">Chi Tiết Thu Chi</p>
+        <div class="shop_info">
+
+          <div id="orders">
+            <div id="box_title">
+              <h4 th:text ="|Số Đơn Hàng Tháng ${currentMonth}|"></h4>
+              <img src="/imgs/orders.png" alt="orders">
+            </div>
+            <div id="box_content">
+              <h1 th:text ="${currentMonthorders}" ></h1>
+              <div>
+                <small>so với tháng trước</small>
+                <small id="orderDifference" th:text = "${orderDifference}" ></small>
+              </div>
+            </div>
+          </div>
+
+          <div id="money">
+            <div id="box_title">
+              <h4 th:text ="|Doanh thu tháng ${currentMonth}|"></h4>
+              <img src="/imgs/revenue.png" alt="revenue">
+            </div>
+            <div id="box_content">
+              <h1 id="uriage" th:text ="${uriage}"></h1>
+              <div>
+                <small>lãi ròng</small>
+                <small id="revenue" th:text ="${revenue}"></small>
+              </div>
+            </div>
+          </div>
+          <div id="client">
+            <div id="box_title">
+              <h4 th:text ="|Top Khách Hàng Tháng ${currentMonth}|"></h4>
+              <img src="/imgs/client.png" alt="client">
+            </div>
+            <div id="box_content">
+              <h1 th:text ="${clientName}"></h1>
+              <div>
+                <small>Số lần mua hàng</small>
+                <small id="time_traded" th:text ="${countPurchases}"></small>
+              </div>
+            </div>
+          </div>
+
+        </div>
 
       </div>
     </div>
-    <script src="/js/logout.js"></script> 
+    <script src="/js/logout.js"></script>
+    <script src="/js/incomeDisplay.js"></script> 
   </body>
 </html>

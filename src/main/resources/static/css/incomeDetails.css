@@ -127,3 +127,38 @@ main {
 
 
 
+.shop_info {
+    display: flex;
+    gap: 40px;
+  }
+  
+  #orders, #money,#client {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    border-top: 2px solid #80808030;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 40px;
+    margin-top: 50px;
+  }
+  
+  #box_title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+  }
+  
+  #box_content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #box_content div {
+    display: flex;
+    justify-content: space-between;
+  }
+  .shop_info img {
+    height: 40px;
+    width: 40px;
+  }
