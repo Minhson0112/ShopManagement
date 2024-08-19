@@ -82,13 +82,22 @@
           <button id="search_button">Tìm Kiếm</button>
           <p id="search_error">Tìm Kiếm Thất Bại</p>
         </form>
+        <div id="chart_content">
+          <div id="salesPieChart_container">
+            <p id="chart_title">Biểu Đồ Hàng Bán Chạy</p>
+            <canvas id="salesPieChart" ></canvas>
+          </div>
+          <div id="revenueAreaChart_container">
+            <p id="chart_title">Biểu Đồ Thu Nhập Tháng</p>
+            <div id="income_details">
+              <h2 id="revenue">Doanh Thu: 37000</h2>
+              <h2 id="profit">lãi Ròng: 18000</h2>
+              <h2 id="number_of_sales">Số đơn hàng: 40</h2>
+            </div>
+            <canvas id="revenueAreaChart"></canvas>
+          </div>
+        </div>
 
-        <div id="salesPieChart_container">
-          <canvas id="salesPieChart" ></canvas>
-        </div>
-        <div id="revenueAreaChart_container">
-          <canvas id="revenueAreaChart"></canvas>
-        </div>
 
       </div>
     </div>

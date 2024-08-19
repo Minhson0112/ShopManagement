@@ -210,20 +210,31 @@ main {
     color: #ffffff;
 }
 
+#chart_content {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 100px;
+}
+
 #salesPieChart_container {
     width: 400px;
     height: 400px;
     display: none;
     flex-direction: column;
     justify-content: center;
+    margin-top: 20px;
 }
 
 #revenueAreaChart_container{
-    width: 600px;
+    width: 800px;
     height: 600px;
     display: none;
     flex-direction: column;
     justify-content: center;
+    margin-top: 200px;
 }
 
 #salesPieChart {
@@ -233,5 +244,25 @@ main {
 #revenueAreaChart {
     width: auto;
     height: auto;
-    margin-top: 40px;
+   
+}
+#chart_title {
+    color: black;
+    font-size: 20px;
+}
+
+#income_details {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#income_details h2 {
+    color: black;
+    
+}
+
+#sales_details h2 {
+    color: black;
+   
 }

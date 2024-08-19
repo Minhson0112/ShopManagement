@@ -102,22 +102,23 @@ public class IncomeDetailsService {
         List<RevenuePeriodDTO> result = new ArrayList<>();
         
         // Tạo đối tượng DTO cho mỗi khoảng thời gian
+        result.add(new RevenuePeriodDTO("1",0,0));
         if (period1Data.get(0) != null) {
             int revenue1 = (period1Data.get(0)[0] != null) ? ((Number) period1Data.get(0)[0]).intValue() : 0;
             int profit1 = (period1Data.get(0)[1] != null) ? ((Number) period1Data.get(0)[1]).intValue() : 0;
-            result.add(new RevenuePeriodDTO("01-10", revenue1, profit1));
+            result.add(new RevenuePeriodDTO("10", revenue1, profit1));
         }
         
         if (period2Data.get(0) != null) {
             int revenue2 = (period2Data.get(0)[0] != null) ? ((Number) period2Data.get(0)[0]).intValue() : 0;
             int profit2 = (period2Data.get(0)[1] != null) ? ((Number) period2Data.get(0)[1]).intValue() : 0;
-            result.add(new RevenuePeriodDTO("11-20", revenue2, profit2));
+            result.add(new RevenuePeriodDTO("20", revenue2, profit2));
         }
         
         if (period3Data.get(0) != null) {
             int revenue3 = (period3Data.get(0)[0] != null) ? ((Number) period3Data.get(0)[0]).intValue() : 0;
             int profit3 = (period3Data.get(0)[1] != null) ? ((Number) period3Data.get(0)[1]).intValue() : 0;
-            result.add(new RevenuePeriodDTO("21-" + lastDay.getDayOfMonth(), revenue3, profit3));
+            result.add(new RevenuePeriodDTO("" + lastDay.getDayOfMonth(), revenue3, profit3));
         }
     
         return result;

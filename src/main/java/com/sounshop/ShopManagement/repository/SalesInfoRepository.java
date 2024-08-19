@@ -59,11 +59,12 @@ public interface SalesInfoRepository extends CrudRepository<SalesInfo, Integer> 
     @Query("SELECT COUNT(s) FROM SalesInfo s WHERE s.clientName = :clientName AND MONTH(s.tradingDate) = :month AND YEAR(s.tradingDate) = :year")
     int countPurchasesByClient(@Param("clientName") String clientName, @Param("month") int month, @Param("year") int year);
 
-    @Query("SELECT new com.sounshop.ShopManagement.dto.ProductSalesDTO(p.productName, COUNT(s)) " +
+    @Query("SELECT new com.sounshop.ShopManagement.dto.ProductSalesDTO(p.productName, SUM(s.tradingQuantity)) " +
        "FROM SalesInfo s JOIN ProductInfo p ON s.productId = p.productId " +
        "WHERE MONTH(s.tradingDate) = :month AND YEAR(s.tradingDate) = :year " +
        "GROUP BY p.productName")
     List<ProductSalesDTO> findProductSales(@Param("month") int month, @Param("year") int year);
+
 
     @Query("SELECT SUM(s.price), SUM(s.profit) " +
        "FROM SalesInfo s " +
