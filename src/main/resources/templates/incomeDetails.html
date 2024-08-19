@@ -7,7 +7,7 @@
     <meta name="_csrf" th:content="${_csrf.token}">
     <meta name="_csrf_header" th:content="${_csrf.headerName}">
     <link rel="stylesheet" href="/css/incomeDetails.css">
-   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header th:replace="~{common/header :: header()}"></header>
@@ -61,10 +61,39 @@
           </div>
 
         </div>
+        <form class="search_form">
+          <p id="form_title">Phân Tích Doanh Thu</p>
+          <label for="month_select">Chọn Tháng:</label>
+          <select id="month_select" name="month_select">
+            <option value="" selected>ấn để chọn tháng</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+          <button id="search_button">Tìm Kiếm</button>
+          <p id="search_error">Tìm Kiếm Thất Bại</p>
+        </form>
+
+        <div id="salesPieChart_container">
+          <canvas id="salesPieChart" ></canvas>
+        </div>
+        <div id="revenueAreaChart_container">
+          <canvas id="revenueAreaChart"></canvas>
+        </div>
 
       </div>
     </div>
     <script src="/js/logout.js"></script>
     <script src="/js/incomeDisplay.js"></script> 
+    <script src="/js/incomeApi.js"></script> 
   </body>
 </html>

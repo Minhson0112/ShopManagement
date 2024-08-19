@@ -85,6 +85,7 @@ main {
 
 #app_contents_area {
     width: 100%;
+    height: auto;
     overflow: auto;
     display: flex;
     flex-direction: column;
@@ -162,3 +163,75 @@ main {
     height: 40px;
     width: 40px;
   }
+
+.search_form {
+    background-color: #b0bec5;
+    margin-bottom: 24px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 560px;
+}
+  
+  
+.search_form label {
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 24px;
+}
+  
+.search_form select {
+    font-size: 16px;
+    color: #000000;
+    height: 24px;
+    border: none;
+}
+  
+#search_error {
+    font-size: 16px;
+    color: #ff0000;
+    display: none;
+    margin: 0;
+    line-height: 24px;
+}
+  
+#search_button {
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #607d8b;
+    margin: 16px auto 0;
+    height: 24px;
+    width: 100px;
+}
+#form_title {
+    margin: auto;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+#salesPieChart_container {
+    width: 400px;
+    height: 400px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#revenueAreaChart_container{
+    width: 600px;
+    height: 600px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#salesPieChart {
+    width: auto;
+    height: auto;
+}
+#revenueAreaChart {
+    width: auto;
+    height: auto;
+    margin-top: 40px;
+}

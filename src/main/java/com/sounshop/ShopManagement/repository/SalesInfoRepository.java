@@ -1,6 +1,7 @@
 package com.sounshop.ShopManagement.repository;
 
 import com.sounshop.ShopManagement.dto.SalesInfoDTO;
+import com.sounshop.ShopManagement.dto.ProductSalesDTO;
 import com.sounshop.ShopManagement.entity.SalesInfo;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -57,5 +58,19 @@ public interface SalesInfoRepository extends CrudRepository<SalesInfo, Integer> 
 
     @Query("SELECT COUNT(s) FROM SalesInfo s WHERE s.clientName = :clientName AND MONTH(s.tradingDate) = :month AND YEAR(s.tradingDate) = :year")
     int countPurchasesByClient(@Param("clientName") String clientName, @Param("month") int month, @Param("year") int year);
+
+    @Query("SELECT new com.sounshop.ShopManagement.dto.ProductSalesDTO(p.productName, COUNT(s)) " +
+       "FROM SalesInfo s JOIN ProductInfo p ON s.productId = p.productId " +
+       "WHERE MONTH(s.tradingDate) = :month AND YEAR(s.tradingDate) = :year " +
+       "GROUP BY p.productName")
+    List<ProductSalesDTO> findProductSales(@Param("month") int month, @Param("year") int year);
+
+    @Query("SELECT SUM(s.price), SUM(s.profit) " +
+       "FROM SalesInfo s " +
+       "WHERE s.tradingDate BETWEEN :startDate AND :endDate")
+    List<Object[]> findRevenueByDateRange(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
+
+
+
 
 }
