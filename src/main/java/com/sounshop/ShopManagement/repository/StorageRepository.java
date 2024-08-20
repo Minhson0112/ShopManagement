@@ -9,30 +9,34 @@ import java.util.List;
 
 @Repository
 public interface StorageRepository extends CrudRepository<Storage, Integer> {
-       
+    
     Storage findByProductId(Integer productId);
 
     @Query("SELECT new com.sounshop.ShopManagement.dto.StorageDTO(s.productId, p.productName, p.category, s.quantity) " +
            "FROM Storage s " +
            "JOIN ProductInfo p ON s.productId = p.productId " +
-           "WHERE p.isDelete = false")
+           "WHERE p.isDelete = false " +
+           "ORDER BY s.quantity DESC")
     List<StorageDTO> findAllStorageDTOs();
 
     @Query("SELECT new com.sounshop.ShopManagement.dto.StorageDTO(s.productId, p.productName, p.category, s.quantity) " +
            "FROM Storage s " +
            "JOIN ProductInfo p ON s.productId = p.productId " +
-           "WHERE p.productName LIKE %:productName% AND p.category = :category AND p.isDelete = false")
+           "WHERE p.productName LIKE %:productName% AND p.category = :category AND p.isDelete = false " +
+           "ORDER BY s.quantity DESC")
     List<StorageDTO> findByProductNameContainingAndCategory(String productName, String category);
 
     @Query("SELECT new com.sounshop.ShopManagement.dto.StorageDTO(s.productId, p.productName, p.category, s.quantity) " +
            "FROM Storage s " +
            "JOIN ProductInfo p ON s.productId = p.productId " +
-           "WHERE p.productName LIKE %:productName% AND p.isDelete = false")
+           "WHERE p.productName LIKE %:productName% AND p.isDelete = false " +
+           "ORDER BY s.quantity DESC")
     List<StorageDTO> findByProductNameContaining(String productName);
 
     @Query("SELECT new com.sounshop.ShopManagement.dto.StorageDTO(s.productId, p.productName, p.category, s.quantity) " +
            "FROM Storage s " +
            "JOIN ProductInfo p ON s.productId = p.productId " +
-           "WHERE p.category = :category AND p.isDelete = false")
+           "WHERE p.category = :category AND p.isDelete = false " +
+           "ORDER BY s.quantity DESC")
     List<StorageDTO> findByCategory(String category);
 }

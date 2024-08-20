@@ -34,4 +34,10 @@ public interface EntryProductRepository extends CrudRepository<EntryProduct, Int
 
     @Query(SELECT_DTO + FROM_JOIN + "WHERE ep.entryDate BETWEEN :dayBefore AND :dayAfter")
     List<EntryProductDTO> findByEntryDateBetween(@Param("dayBefore") LocalDate dayBefore, @Param("dayAfter") LocalDate dayAfter);
+
+    @Query("SELECT SUM(s.price) FROM EntryProduct s WHERE MONTH(s.entryDate) = :month AND YEAR(s.entryDate) = :year")
+    Integer totalBuy(@Param("month") int month, @Param("year") int year);
+
+    @Query("SELECT COUNT(s) FROM EntryProduct s WHERE MONTH(s.entryDate) = :month AND YEAR(s.entryDate) = :year")
+    int buysOfMonth(@Param("month") int month, @Param("year") int year);
 }

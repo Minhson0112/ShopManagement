@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const revenueElement = document.getElementById('chart_revenue');
     const profitElement = document.getElementById('chart_profit');
     const salesElement = document.getElementById('number_of_sales');
+    const totalBuy = document.getElementById('total_buy');
+    const buysOfMonth = document.getElementById('buys_of_month');
     const salesPieChartContainer = document.getElementById('salesPieChart_container');
     const revenueAreaChartContainer = document.getElementById('revenueAreaChart_container');
     const ctxPie = document.getElementById('salesPieChart').getContext('2d');
@@ -106,10 +108,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     
 
                     // Cập nhật nội dung của các thẻ HTML với dữ liệu từ API
-                    revenueElement.textContent = `Doanh Thu: ${data.revenue}`;
-                    profitElement.textContent = `Lãi Ròng: ${data.profit}`;
+                    revenueElement.textContent = `Doanh Thu: ${data.revenue}円`;
+                    profitElement.textContent = `Lãi Ròng: ${data.profit}円`;
                     salesElement.textContent = `Số đơn hàng: ${data.sales}`;
-
+                    totalBuy.textContent = `Tổng chi: ${data.totalBuy}円`;
+                    buysOfMonth.textContent = `Nhập Hàng: ${data.buysOfMonth} lần`;
+                    
                     salesPieChartContainer.style.display = 'flex';
                     revenueAreaChartContainer.style.display = 'flex';
                 }

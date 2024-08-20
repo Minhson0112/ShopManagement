@@ -8,6 +8,7 @@ import com.sounshop.ShopManagement.dto.ProductSalesDTO;
 import com.sounshop.ShopManagement.dto.RevenuePeriodDTO;
 import com.sounshop.ShopManagement.dto.IncomeInfoDTO;
 import com.sounshop.ShopManagement.repository.SalesInfoRepository;
+import com.sounshop.ShopManagement.repository.EntryProductRepository;
 import java.util.List;
 import java.util.ArrayList;
 import java.time.YearMonth;
@@ -17,6 +18,9 @@ public class IncomeDetailsService {
 
     @Autowired
     private SalesInfoRepository salesInfoRepository;
+
+    @Autowired
+    private EntryProductRepository entryProductRepository;
 
     public int monthOrders(){
         LocalDate today = LocalDate.now();
@@ -148,6 +152,16 @@ public class IncomeDetailsService {
         }
         
         incomeInfo.setSales(salesInfoRepository.orderOfMonth(month, currentYear));
+
+        Integer totalBuy = entryProductRepository.totalBuy(month, currentYear);
+        if(totalBuy != null){
+            incomeInfo.setTotalBuy(totalBuy);
+        }
+        else{
+            incomeInfo.setTotalBuy(0);
+        }
+
+        incomeInfo.setBuysOfMonth(entryProductRepository.buysOfMonth(month, currentYear));
 
         return incomeInfo;
     }
