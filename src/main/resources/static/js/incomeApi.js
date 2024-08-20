@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (response.status === 204) {
                     searchError.style.display = 'block';
                     salesPieChartContainer.style.display = "none";
-                    revenueAreaChartContainer.style.display = "none";
                     searchError.textContent = 'Không tìm thấy dữ liệu.';
                     return null;
                 } else if (!response.ok) {
