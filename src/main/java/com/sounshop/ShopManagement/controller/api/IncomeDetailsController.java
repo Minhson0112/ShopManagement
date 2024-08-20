@@ -1,6 +1,7 @@
 package com.sounshop.ShopManagement.controller.api;
 import com.sounshop.ShopManagement.dto.ProductSalesDTO;
 import com.sounshop.ShopManagement.dto.RevenuePeriodDTO;
+import com.sounshop.ShopManagement.dto.IncomeInfoDTO;
 import com.sounshop.ShopManagement.service.IncomeDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +42,13 @@ public class IncomeDetailsController {
         }
     }
 
+    @GetMapping("/incomeInfo")
+    public ResponseEntity<IncomeInfoDTO> getMethodName(@RequestParam("month") int month) {
+        
+        IncomeInfoDTO incomeInfo = incomeDetailsService.getIncomeInfo(month);
 
-          
+        return ResponseEntity.ok(incomeInfo);
+        
+    }
+    
 }

@@ -71,7 +71,7 @@ public interface SalesInfoRepository extends CrudRepository<SalesInfo, Integer> 
        "WHERE s.tradingDate BETWEEN :startDate AND :endDate")
     List<Object[]> findRevenueByDateRange(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 
-
+   
 
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sounshop.ShopManagement.dto.ProductSalesDTO;
 import com.sounshop.ShopManagement.dto.RevenuePeriodDTO;
+import com.sounshop.ShopManagement.dto.IncomeInfoDTO;
 import com.sounshop.ShopManagement.repository.SalesInfoRepository;
 import java.util.List;
 import java.util.ArrayList;
@@ -123,5 +124,34 @@ public class IncomeDetailsService {
     
         return result;
     }
+
+    public IncomeInfoDTO getIncomeInfo(int month){
+        IncomeInfoDTO incomeInfo = new IncomeInfoDTO();
+
+        LocalDate today = LocalDate.now();
+        int currentYear = today.getYear();
+
+        Integer uriage = salesInfoRepository.uriage(month, currentYear);
+        if(uriage != null){
+            incomeInfo.setRevenue(uriage);
+        }
+        else{
+            incomeInfo.setRevenue(0);
+        }
+
+        Integer profit = salesInfoRepository.revenue(month, currentYear);
+        if (profit != null) {
+            incomeInfo.setProfit(profit);
+        }
+        else{
+            incomeInfo.setProfit(0);
+        }
+        
+        incomeInfo.setSales(salesInfoRepository.orderOfMonth(month, currentYear));
+
+        return incomeInfo;
+    }
+
+
     
 }

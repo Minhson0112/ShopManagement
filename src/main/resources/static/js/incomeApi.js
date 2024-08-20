@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchButton = document.getElementById('search_button');
     const monthSelect = document.getElementById('month_select');
     const searchError = document.getElementById('search_error');
+    const revenueElement = document.getElementById('chart_revenue');
+    const profitElement = document.getElementById('chart_profit');
+    const salesElement = document.getElementById('number_of_sales');
     const salesPieChartContainer = document.getElementById('salesPieChart_container');
     const revenueAreaChartContainer = document.getElementById('revenueAreaChart_container');
     const ctxPie = document.getElementById('salesPieChart').getContext('2d');
@@ -15,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedMonth = monthSelect.value;
         if (selectedMonth === "") {
             searchError.style.display = 'block';
+            salesPieChartContainer.style.display = "none";
+            revenueAreaChartContainer.style.display = "none";
             searchError.textContent = 'Vui lòng chọn một tháng!';
             return;
         }
@@ -24,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => {
                 if (response.status === 204) {
                     searchError.style.display = 'block';
+                    salesPieChartContainer.style.display = "none";
+                    revenueAreaChartContainer.style.display = "none";
                     searchError.textContent = 'Không tìm thấy dữ liệu.';
                     return null;
                 } else if (!response.ok) {
@@ -74,7 +81,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 searchError.style.display = 'block';
                 searchError.textContent = 'Đã xảy ra lỗi khi tìm kiếm. Vui lòng thử lại sau.';
             });
+        
 
+
+
+
+
+        // Gửi yêu cầu API để lấy dữ liệu thu nhập (incomeInfo)
+        fetch(`/api/income/incomeInfo?month=${selectedMonth}`)
+            .then(response => {
+                if (response.status === 204) {
+                    searchError.style.display = 'block';
+                    salesPieChartContainer.style.display = "none";
+                    revenueAreaChartContainer.style.display = "none";
+                    searchError.textContent = 'Không tìm thấy dữ liệu.';
+                    return null;
+                } else if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data) {
+                    console.log("Income Info Data:", data);
+                    
+
+                    // Cập nhật nội dung của các thẻ HTML với dữ liệu từ API
+                    revenueElement.textContent = `Doanh Thu: ${data.revenue}`;
+                    profitElement.textContent = `Lãi Ròng: ${data.profit}`;
+                    salesElement.textContent = `Số đơn hàng: ${data.sales}`;
+
+                    salesPieChartContainer.style.display = 'flex';
+                    revenueAreaChartContainer.style.display = 'flex';
+                }
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+                searchError.style.display = 'block';
+                searchError.textContent = 'Đã xảy ra lỗi khi tìm kiếm. Vui lòng thử lại sau.';
+            });
+        
         // Gửi yêu cầu API để lấy dữ liệu cho biểu đồ vùng
         fetch(`/api/income/revenueByPeriod?month=${selectedMonth}`)
             .then(response => {
@@ -90,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data) {
                     console.log("Revenue Period Data:", data);
-                    searchError.style.display = 'none';
+                    
 
                     const labels = data.map(item => item.period);
                     const revenueData = data.map(item => item.revenue);
