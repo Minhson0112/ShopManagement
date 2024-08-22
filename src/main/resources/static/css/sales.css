@@ -1,6 +1,6 @@
 html {
     height: 100%;
-  }
+}
   
   body {
     height: 100vh;
@@ -379,3 +379,46 @@ html {
     display: none;
     margin: 0;
   }
+#invoice {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  height: auto;
+  width: 650px;
+  background-color: #ffffff;
+  border: 2px solid black;
+}
+
+#invoice_header{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+}
+
+#invoice_content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+
+}
+#payment_method {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+}
+#invoice_end{
+  display: flex;
+  flex-direction: column;
+}
+#close_invoice{
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #607d8b;
+  margin: 16px auto 0;
+  height: 24px;
+  width: 100px;
+}

@@ -78,7 +78,7 @@ public class SalesInfoController {
         salesInfo.setPrice(tradingPrice);
         salesInfo.setProfit(profit);
 
-        SalesInfo savedSalesInfo = salesInfoService.saveSalesInfo(salesInfo);
-        return ResponseEntity.ok(savedSalesInfo);
+        salesInfoService.saveSalesInfo(salesInfo);
+        return ResponseEntity.ok(salesInfo);
     }
 }

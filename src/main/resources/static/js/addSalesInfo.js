@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const addSalesDialog = document.getElementById('add_sales_dialog');
     const closeAddSalesButton = document.getElementById('close_add_sales_button');
     const decideAddSalesButton = document.getElementById('decide_add_sales_button');
+    const closeInvoice = document.getElementById("close_invoice");
     const pageWrapper = document.getElementById('page_wrapper');
     const loadingDialog = document.getElementById('loading_dialog');
     const addSalesError = document.getElementById('add_sales_error');
@@ -11,12 +12,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const titleSelect1 = document.getElementById('title_select1');
     const inputQuantity = document.getElementById('input_quantity');
     const inputAddress = document.getElementById('input_address');
+    const invoice = document.getElementById("invoice");
 
     addSalesButton.addEventListener('click', function(event) {
         event.preventDefault();
         pageWrapper.style.display = 'flex';
         addSalesDialog.style.display = 'flex';
         fetchClientNames();
+    });
+    
+    closeInvoice.addEventListener("click", function(event){
+        event.preventDefault();
+        pageWrapper.style.display = 'none';
+        invoice.style.display = "none"
+        location.reload(); 
     });
 
     closeAddSalesButton.addEventListener('click', function(event) {
@@ -73,9 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             if(data){
-                pageWrapper.style.display = 'none';
                 addSalesDialog.style.display = 'none';
-                location.reload(); // Optionally reload the page to reflect the new sales entry
+                showInvoice(data,salesData);
             }
         })
         .catch(error => {
@@ -119,5 +127,27 @@ document.addEventListener('DOMContentLoaded', function() {
             option.textContent = clientName;
             selectClientName.appendChild(option);
         });
+    }
+
+    function showInvoice(data,salesData){
+        const localDate = document.getElementById("local_date");
+        const clientName = document.getElementById("client_name"); 
+        const clientAddress = document.getElementById("client_address");
+        const productName = document.getElementById("product_name");
+        const productQuantity = document.getElementById("product_quantity");
+        const price = document.getElementById("price");
+        const paymentMethod = document.getElementById("payment_method_content");
+        const endWord = document.getElementById("end_word");
+
+        localDate.textContent = `${data.tradingDate}`;
+        clientName.textContent = `Tên khách hàng: ${data.clientName}`;
+        clientAddress.textContent = `Địa chỉ giao hàng: ${data.address}`;
+        productName.textContent = "Tên sản phẩm: " + salesData.productName;
+        productQuantity.textContent = `Số Lượng: ${data.tradingQuantity}`;
+        price.textContent = `Thành tiền: ${data.price}円`;
+        paymentMethod.textContent = `Chuyển khoản vào số tài khoản 123456 ngân hàng yuuchou tên hongnhung với số tiền ${data.price}円`;
+        endWord.textContent = `Cảm ơn và hẹn gặp lại bạn ${data.clientName}, chúc bạn một ngày tốt lành.`
+
+        invoice.style.display = "flex";
     }
 });
